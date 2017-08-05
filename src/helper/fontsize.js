@@ -40,5 +40,7 @@ export default StyleSheet.create({
     SMALL_FONT: { fontSize: SMALL_FONT },
     XSMALL_FONT: { fontSize: XSMALL_FONT },
     LMEDIUM_FONT: { fontSize: LMEDIUM_FONT },
+    width: {width:width},
+    height: {height:height},
 
 })

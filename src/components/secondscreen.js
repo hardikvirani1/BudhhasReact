@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {StackNavigator} from 'react-navigation';
 import {StyleSheet, View, Text, TextInput, TouchableHighlight, Image, Dimensions} from 'react-native';
 const {height, width} = Dimensions.get('window');
+import font  from '../helper/fontsize';
+import strings from '../helper/language';
 
 class SecondScreen extends Component {
     static navigationOptions = {
@@ -9,29 +11,33 @@ class SecondScreen extends Component {
     };
 
     render() {
+
         return (
             <View style={styles.mainView}>
                 <View style={styles.titleView}>
-                    <Text style={styles.titleText}>In the</Text>
-                    <Text style={styles.titleText}>Buddha's</Text>
-                    <Text style={styles.titleText}>footsteps</Text>
+                    <Text style={[font.TITLE_FONT,styles.titleText]}>{strings.in}</Text>
+                    <Text style={[font.XLARGE_FONT,styles.titleText]}>{strings.buddha}</Text>
+                    <Text style={[font.MEDIUM_FONT,styles.titleText]}>{strings.footsteps}</Text>
                 </View>
 
                 <View style={styles.contentView}>
                     <View>
-                        <Image source={require('../../images/buddha.jpeg')} style={{height: width/1.75}} />
+                        <Image source={require('../../images/buddha.jpeg')}
+                               style={{height: height/2.5, width:width-40}} />
                     </View>
 
-                    <View style={{flexDirection:'row', marginTop:30}}>
-                        <TouchableHighlight style={[styles.btnStyle, {borderRightWidth:0.5, borderRightColor:'black'}]}
-                                            onPress={() => {this.props.navigation.navigate('register')}}>
-                            <Text>Register</Text>
-                        </TouchableHighlight>
+                    <View style={{flex:1,justifyContent:'flex-end', }}>
+                        <View style={{flexDirection:'row',marginBottom:20, }}>
+                            <TouchableHighlight style={[styles.btnStyle, {borderRightWidth:1, borderRightColor:'gray'}]}
+                                                onPress={() => {this.props.navigation.navigate('register')}}>
+                                <Text style={[font.MEDIUM_FONT,styles.titleText]}>{strings.register}</Text>
+                            </TouchableHighlight>
 
-                        <TouchableHighlight style={[styles.btnStyle, {borderLeftWidth:0.5, borderLeftColor:'black'}]}
-                                            onPress={() => {this.props.navigation.navigate('signin')}}>
-                            <Text>Sign In</Text>
-                        </TouchableHighlight>
+                            <TouchableHighlight style={[styles.btnStyle, {}]}
+                                                onPress={() => {this.props.navigation.navigate('signin')}}>
+                                <Text style={[font.MEDIUM_FONT,styles.titleText]}>{strings.signin}</Text>
+                            </TouchableHighlight>
+                        </View>
                     </View>
                 </View>
             </View>
@@ -42,6 +48,7 @@ class SecondScreen extends Component {
 const styles = StyleSheet.create({
     mainView: {
         flexDirection:'column',
+        flex:1,
     },
     titleView:{
         justifyContent:'center',
@@ -49,7 +56,7 @@ const styles = StyleSheet.create({
         height: height/2.5,
     },
     contentView: {
-        justifyContent:'center',
+        flex:1,
         alignItems:'center',
         width,
         flexDirection:'column',
@@ -64,6 +71,5 @@ const styles = StyleSheet.create({
         padding:10
     }
 });
-
 
 export default SecondScreen;
