@@ -1,13 +1,19 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Text, TouchableHighlight, Image, Dimensions, TextInput} from 'react-native';
 import {connect, } from 'react-redux';
+import { NavigationActions } from 'react-navigation';
 const {height, width} = Dimensions.get('window');
+import font from '../helper/fontsize';
 import * as actions from '../actions'
-import Strings from '../helper/language';
+import strings from '../helper/language';
+
+const backAction = NavigationActions.back({
+    key: null
+});
 
 class Register extends Component {
     static navigationOptions = {
-
+        header:null,
     };
 
     onCreateSet = () => {
@@ -15,52 +21,73 @@ class Register extends Component {
         this.props.userCreates({email, password, repassword, coupon});
     };
 
+    btnBack = () => {
+        this.props.navigation.dispatch(backAction)
+    };
+
     render() {
+
         return (
             <View style={styles.mainView}>
-                <View style={styles.titleView}>
-                    <Text style={styles.titleText}>In the</Text>
-                    <Text style={styles.titleText}>Buddha's</Text>
-                    <Text style={styles.titleText}>footsteps</Text>
+
+                <View style={[styles.titleView,]}>
+                    <View style={{marginLeft:12,marginTop:-25}}>
+                        <TouchableHighlight onPress={this.btnBack} style={{width:50, height:50}}>
+                            <Image source={require('../../images/left-arrow.png')} style={{width:25, height:25}} />
+                        </TouchableHighlight>
+                    </View>
+                    <Text style={[font.TITLE_FONT,styles.titleText]}>{strings.in}</Text>
+                    <Text style={[font.XLARGE_FONT,styles.titleText]}>{strings.buddha}</Text>
+                    <Text style={[font.MEDIUM_FONT,styles.titleText]}>{strings.footsteps}</Text>
                 </View>
 
                 <View style={styles.contentView}>
-                    <TextInput style = {styles.input}
-                               underlineColorAndroid = "transparent"
-                               placeholder = "Email"
-                               autoCapitalize = "none"
-                               value={this.props.email}
-                               onChangeText={(text) => {this.props.userRegisterUpdate({ prop: 'email', value: text});}}
-                    />
+                    <View>
+                        <TextInput style = {[font.TEXTBOX_FONT,styles.input]}
+                                   underlineColorAndroid = "transparent"
+                                   placeholder = {strings.email}
+                                   autoCorrect={false}
+                                   autoCapitalize = "none"
+                                   value={this.props.email}
+                                   onChangeText={(text) => {this.props.userRegisterUpdate({ prop: 'email', value: text});}}
+                        />
 
 
-                    <TextInput style = {styles.input}
-                               underlineColorAndroid = "transparent"
-                               placeholder = "Password"
-                               autoCapitalize = "none"
-                               value={this.props.password}
-                               onChangeText={(text) => {this.props.userRegisterUpdate({ prop: 'password', value: text});}}
-                    />
+                        <TextInput style = {[font.TEXTBOX_FONT,styles.input]}
+                                   underlineColorAndroid = "transparent"
+                                   placeholder = {strings.password}
+                                   secureTextEntry
+                                   autoCorrect={false}
+                                   autoCapitalize = "none"
+                                   value={this.props.password}
+                                   onChangeText={(text) => {this.props.userRegisterUpdate({ prop: 'password', value: text});}}
+                        />
 
-                    <TextInput style = {styles.input}
-                               underlineColorAndroid = "transparent"
-                               placeholder = "Confirm Password"
-                               autoCapitalize = "none"
-                               value={this.props.repassword}
-                               onChangeText={(text) => {this.props.userRegisterUpdate({ prop: 'repassword', value: text});}}
-                    />
+                        <TextInput style = {[font.TEXTBOX_FONT,styles.input]}
+                                   underlineColorAndroid = "transparent"
+                                   placeholder = {strings.confirmpassword}
+                                   secureTextEntry
+                                   autoCorrect={false}
+                                   autoCapitalize = "none"
+                                   value={this.props.repassword}
+                                   onChangeText={(text) => {this.props.userRegisterUpdate({ prop: 'repassword', value: text});}}
+                        />
 
-                    <TextInput style = {styles.input}
-                               underlineColorAndroid = "transparent"
-                               placeholder = "Coupon Code"
-                               autoCapitalize = "none"
-                               value={this.props.coupon}
-                               onChangeText={(text) => {this.props.userRegisterUpdate({ prop: 'coupon', value: text});}}
-                    />
+                        <TextInput style = {[font.TEXTBOX_FONT,styles.input]}
+                                   underlineColorAndroid = "transparent"
+                                   placeholder = {strings.couponcode}
+                                   autoCorrect={false}
+                                   autoCapitalize = "none"
+                                   value={this.props.coupon}
+                                   onChangeText={(text) => {this.props.userRegisterUpdate({ prop: 'coupon', value: text});}}
+                        />
+                    </View>
 
-                    <TouchableHighlight style = {styles.submitButton} onPress={this.onCreateSet}>
-                        <Text style = {styles.submitButtonText}>Register</Text>
-                    </TouchableHighlight>
+                    <View style={{flex:1, justifyContent:'flex-end', marginBottom:20}}>
+                        <TouchableHighlight style = {styles.submitButton} onPress={this.onCreateSet}>
+                            <Text style = {[styles.submitButtonText, font.TEXTBOX_FONT]}>{strings.register}</Text>
+                        </TouchableHighlight>
+                    </View>
                 </View>
             </View>
         );
@@ -70,14 +97,15 @@ class Register extends Component {
 const styles = StyleSheet.create({
     mainView: {
         flexDirection:'column',
+        flex:1,
     },
     titleView:{
         justifyContent:'center',
         width,
-        height: height/3,
+        height: height/2.5,
     },
     contentView: {
-        justifyContent:'center',
+        flex:1,
         alignItems:'center',
         width,
         flexDirection:'column',
@@ -110,11 +138,12 @@ const styles = StyleSheet.create({
     },
 
     submitButtonText:{
-        color: '#007AFF',
+        color: 'black',
     }
 });
 
 mapStateToProps = state => {
+    console.log('sign up',state)
     const {email, password, repassword, coupon} = state.userRegisterForm;
     return {
         email, password, repassword, coupon

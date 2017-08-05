@@ -1,14 +1,27 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text, TextInput, TouchableHighlight, Image, Dimensions} from 'react-native';
+import {StyleSheet, View, Text, TextInput, TouchableHighlight, Image, Dimensions, AsyncStorage} from 'react-native';
 import {connect, } from 'react-redux';
+import font  from '../helper/fontsize';
+import strings from '../helper/language';
 const {height, width} = Dimensions.get('window');
 import * as actions from '../actions'
-import Strings from '../helper/language';
 
 class FirstScreen extends Component {
     static navigationOptions = {
         header: null,
     };
+
+    componentWillMount(){
+        let lang = AsyncStorage.getItem('selected_lang');
+
+        if(!lang){
+            strings.setLanguage('en-US');
+        } else {
+            strings.setLanguage('en-US');
+        }
+
+
+    }
 
     onSelectLang = (lang) => {
         const navigate = this.props.navigation;
@@ -19,22 +32,22 @@ class FirstScreen extends Component {
         return (
             <View style={styles.mainView}>
                 <View style={styles.titleView}>
-                    <Text style={styles.titleText}>In the</Text>
-                    <Text style={styles.titleText}>Buddha's</Text>
-                    <Text style={styles.titleText}>footsteps</Text>
+                    <Text style={[font.TITLE_FONT,styles.titleText]}>{strings.in}</Text>
+                    <Text style={[font.XLARGE_FONT,styles.titleText]}>{strings.buddha}</Text>
+                    <Text style={[font.MEDIUM_FONT,styles.titleText]}>{strings.footsteps}</Text>
                 </View>
 
                 <View style={styles.languageView}>
-                    <TouchableHighlight onPress={() => this.onSelectLang('English') } style={styles.btnStyle}>
-                        <Text style={styles.titleText}>English</Text>
+                    <TouchableHighlight onPress={() => this.onSelectLang('en-US') } style={styles.btnStyle}>
+                        <Text style={[font.MEDIUM_FONT,styles.titleText]}>English</Text>
                     </TouchableHighlight>
 
-                    <TouchableHighlight onPress={() => this.onSelectLang('Spanish') } style={styles.btnStyle}>
-                        <Text style={styles.titleText}>Espanol</Text>
+                    <TouchableHighlight onPress={() => this.onSelectLang('en') } style={styles.btnStyle}>
+                        <Text style={styles.titleText}>Español</Text>
                     </TouchableHighlight>
 
-                    <TouchableHighlight onPress={() =>{} } style={styles.btnStyle}>
-                        <Text style={styles.titleText}>Francais</Text>
+                    <TouchableHighlight onPress={() => this.onSelectLang('it') } style={styles.btnStyle}>
+                        <Text style={styles.titleText}>français</Text>
                     </TouchableHighlight>
 
                     <TouchableHighlight onPress={() =>{} } style={styles.btnStyle}>
@@ -53,6 +66,7 @@ class FirstScreen extends Component {
 const styles = StyleSheet.create({
     mainView: {
         flexDirection:'column',
+        flex:1,
     },
     titleView:{
         justifyContent:'center',
@@ -60,7 +74,6 @@ const styles = StyleSheet.create({
         height: height/2.5,
     },
     languageView: {
-        justifyContent:'center',
         alignItems:'center',
         width,
         flexDirection:'column',
