@@ -22,7 +22,7 @@ class Register extends Component {
     };
 
     btnBack = () => {
-        this.props.navigation.dispatch(backAction)
+        this.props.navigation.dispatch(backAction);
     };
 
     render() {
@@ -31,7 +31,7 @@ class Register extends Component {
             <View style={styles.mainView}>
 
                 <View style={[styles.titleView,]}>
-                    <View style={{marginLeft:12,marginTop:-25}}>
+                    <View style={{marginLeft:12,marginTop:-35}}>
                         <TouchableHighlight onPress={this.btnBack} style={{width:50, height:50}}>
                             <Image source={require('../../images/left-arrow.png')} style={{width:25, height:25}} />
                         </TouchableHighlight>
@@ -84,7 +84,8 @@ class Register extends Component {
                     </View>
 
                     <View style={{flex:1, justifyContent:'flex-end', marginBottom:20}}>
-                        <TouchableHighlight style = {styles.submitButton} onPress={this.onCreateSet}>
+                        <TouchableHighlight style = {styles.submitButton}
+                                            underlayColor='transparent' onPress={this.onCreateSet}>
                             <Text style = {[styles.submitButtonText, font.TEXTBOX_FONT]}>{strings.register}</Text>
                         </TouchableHighlight>
                     </View>
@@ -143,7 +144,7 @@ const styles = StyleSheet.create({
 });
 
 mapStateToProps = state => {
-    console.log('sign up',state)
+    //console.log('sign up',state);
     const {email, password, repassword, coupon} = state.userRegisterForm;
     return {
         email, password, repassword, coupon

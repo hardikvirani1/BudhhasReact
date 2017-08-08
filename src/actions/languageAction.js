@@ -1,8 +1,11 @@
 import { SELECT_LANGUAGE } from './types';
 import {AsyncStorage} from 'react-native';
 import strings from '../helper/language';
+import Router from '../NavigationHelper/Router'
+import { NavigationActions } from '@expo/ex-navigation';
+import Store from '../reducers';
 
-export const userSelectLang = (selected_lang, navigation) => {
+export const userSelectLang = (selected_lang) => {
     console.log('selected-lang:',selected_lang);
     return (dispatch) => {
         dispatch({
@@ -11,6 +14,8 @@ export const userSelectLang = (selected_lang, navigation) => {
         });
         AsyncStorage.setItem('selected_lang', selected_lang);
         strings.setLanguage(selected_lang);
-        navigation.navigate('secondscreen');
+
+        let navigatorUID = Store.getState().navigation.currentNavigatorUID;
+        Store.dispatch(NavigationActions.push(navigatorUID, Router.getRoute('secondscreen')));
     };
 };

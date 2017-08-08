@@ -13,6 +13,7 @@ let strings = new LocalizedStrings({
         password: 'Password',
         confirmpassword: 'Confirm Password',
         couponcode: 'Coupon Code',
+        home: 'Home',
     },
     // Spanish lang...
     en:{
@@ -25,6 +26,7 @@ let strings = new LocalizedStrings({
         password: 'Contraseña',
         confirmpassword: 'Confirmar contraseña',
         couponcode: 'Código promocional',
+        home: 'Casa',
     },
     // French lang....
     it: {
@@ -37,6 +39,7 @@ let strings = new LocalizedStrings({
         password: 'Mot de passe',
         confirmpassword: 'Confirmez le mot de passe',
         couponcode: 'Code de coupon',
+        home: 'Accueil',
     }
 });
 

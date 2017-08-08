@@ -30,7 +30,7 @@ class Signin extends Component {
         return (
             <View style={styles.mainView}>
                 <View style={[styles.titleView,]}>
-                    <View style={{marginLeft:12,marginTop:-25}}>
+                    <View style={{marginLeft:12,marginTop:-35}}>
                         <TouchableHighlight onPress={this.btnBack} style={{width:50, height:50}}>
                             <Image source={require('../../images/left-arrow.png')} style={{width:25, height:25}} />
                         </TouchableHighlight>
@@ -63,7 +63,8 @@ class Signin extends Component {
                     </View>
 
                     <View style={{flex:1, justifyContent:'flex-end', marginBottom:30}}>
-                        <TouchableHighlight style = {styles.submitButton} onPress={this.onLoginSet}>
+                        <TouchableHighlight style = {styles.submitButton}
+                                            underlayColor='transparent' onPress={this.onLoginSet}>
                             <Text style = {[styles.submitButtonText, font.TEXTBOX_FONT]}>{strings.signin}</Text>
                         </TouchableHighlight>
                     </View>

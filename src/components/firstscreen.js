@@ -5,6 +5,7 @@ import font  from '../helper/fontsize';
 import strings from '../helper/language';
 const {height, width} = Dimensions.get('window');
 import * as actions from '../actions'
+import Constant from '../helper/constants';
 
 class FirstScreen extends Component {
     static navigationOptions = {
@@ -24,8 +25,7 @@ class FirstScreen extends Component {
     }
 
     onSelectLang = (lang) => {
-        const navigate = this.props.navigation;
-        this.props.userSelectLang(lang, navigate);
+        this.props.userSelectLang(lang);
     };
 
     render() {
@@ -38,23 +38,26 @@ class FirstScreen extends Component {
                 </View>
 
                 <View style={styles.languageView}>
-                    <TouchableHighlight onPress={() => this.onSelectLang('en-US') } style={styles.btnStyle}>
+                    <TouchableHighlight onPress={() => this.onSelectLang('en-US') }
+                                        underlayColor='transparent' style={styles.btnStyle}>
                         <Text style={[font.MEDIUM_FONT,styles.titleText]}>English</Text>
                     </TouchableHighlight>
 
-                    <TouchableHighlight onPress={() => this.onSelectLang('en') } style={styles.btnStyle}>
+                    <TouchableHighlight onPress={() => this.onSelectLang('en') }
+                                        underlayColor='transparent' style={styles.btnStyle}>
                         <Text style={styles.titleText}>Español</Text>
                     </TouchableHighlight>
 
-                    <TouchableHighlight onPress={() => this.onSelectLang('it') } style={styles.btnStyle}>
+                    <TouchableHighlight onPress={() => this.onSelectLang('it') }
+                                        underlayColor='transparent' style={styles.btnStyle}>
                         <Text style={styles.titleText}>français</Text>
                     </TouchableHighlight>
 
-                    <TouchableHighlight onPress={() =>{} } style={styles.btnStyle}>
+                    <TouchableHighlight onPress={() =>{} } underlayColor='transparent' style={styles.btnStyle}>
                         <Text style={styles.titleText}>Pyccknn</Text>
                     </TouchableHighlight>
 
-                    <TouchableHighlight onPress={() =>{} } style={styles.btnStyle}>
+                    <TouchableHighlight onPress={() =>{} } underlayColor='transparent'  style={styles.btnStyle}>
                         <Text style={styles.titleText}>English</Text>
                     </TouchableHighlight>
                 </View>
@@ -77,7 +80,6 @@ const styles = StyleSheet.create({
         alignItems:'center',
         width,
         flexDirection:'column',
-
     },
     titleText: {
         alignSelf:'center',

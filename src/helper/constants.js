@@ -1,0 +1,65 @@
+/**
+ * Created by developer91 on 4/19/17.
+ */
+import React, { Component } from 'react';
+import {
+    Dimensions,
+    Platform
+} from 'react-native';
+const baseURL = "http://lanetteam.com:8080";
+module.exports = {
+
+    screen: Dimensions.get('window'),
+    screenHeight:  Dimensions.get('window').height,
+    screenWidth:  Dimensions.get('window').width,
+
+    lightBlueColor: 'rgb(34,122,176)',
+    darkRedColor: 'rgb(243,38,2)',
+    lightGreenColor: 'rgb(67,135,102)',
+    lightYellowColor: 'rgb(255,176,57)',
+    tableGroupColor: 'rgb(219,219,224)',
+    greenColor: 'rgb(0,170,25)',
+    tableSeparatorColor: 'rgb(206,206,206)',
+    underLineColor: 'transparent',
+    lightGrayFontColor: 'rgb(161,161,161)',
+    lightBlueFontColor: 'rgb(42,142,242)',
+    defaultBlue: 'rgb(0,128,255)',
+    themColor: '#FFCC29',
+
+    Views: {
+        SignIn: 'SignIn',
+        SignUp: 'SignUp',
+        ParentCompany: 'ParentCompany',
+        RoofTop: 'RoofTop',
+        HomePage: 'HomePage',
+        Dashboard: 'Dashboard',
+        InventoryDetail: 'InventoryDetail',
+        InventoryList: 'InventoryList',
+        CustomerForm: 'AddCustomerForm',
+        CustomerList: 'CustomerList',
+        ComingSoon: 'ComingSoon',
+        InventoryMediaDetail: 'InventoryMediaDetail',
+        InventoryCameraComponent: 'InventoryCameraComponent',
+        InventoryVideoComponent: 'InventoryVideoComponent',
+        CustomerDetail: 'CustomerDetail',
+    },
+
+    alertTitle: 'Citrus Ventrues',
+    ServerError: 'Internal server error',
+
+    IOS: Platform.OS === 'ios',
+    ANDROID: Platform.OS === 'android',
+
+    navButtonType:{
+        back: 'Back',
+        menu: 'Menu'
+    },
+
+url: {
+    mainURL: "http://lanetteam.com:8080",
+    login: baseURL+"/auth/local",
+    projects: baseURL+"/api/projects",
+    forgotPassword: baseURL+"/api/users/forgot"
+}
+
+};

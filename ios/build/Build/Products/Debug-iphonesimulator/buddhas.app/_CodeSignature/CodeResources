@@ -239,7 +239,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		wHXzBJGv8dX5+hC1LtesGAtYwuI=
+		tJjpKw26DfLD2JgBQAyf6zOKGG8=
 		</data>
 		<key>Ionicons.ttf</key>
 		<data>
@@ -255,7 +255,7 @@
 		</data>
 		<key>Octicons.ttf</key>
 		<data>
-		nDHzgr8cV2wncaeFbvmESHJDPUg=
+		XF4wYBlFFw56fAqk3ggmUtwnNQI=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -279,7 +279,15 @@
 		</data>
 		<key>PlugIns/buddhasTests.xctest/buddhasTests</key>
 		<data>
-		eSGOb8UMBQ1ptcdR/vPpQhdXfIo=
+		W3fG+JPmniJvGlgTPMyrHYM8hME=
+		</data>
+		<key>Roboto.ttf</key>
+		<data>
+		HR1B/K3Fcd7LZEQhG3mTuZzpJuI=
+		</data>
+		<key>Roboto_medium.ttf</key>
+		<data>
+		rbw73kJLz328OPFIAFyDGYJYkfI=
 		</data>
 		<key>SimpleLineIcons.ttf</key>
 		<data>
@@ -288,6 +296,10 @@
 		<key>Zocial.ttf</key>
 		<data>
 		C9pZx7zT05J94EfgkYdaRCi/0as=
+		</data>
+		<key>rubicon-icon-font.ttf</key>
+		<data>
+		wWjJGa/hGKWVqUjSz9izW6v2ekU=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -958,11 +970,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			nDHzgr8cV2wncaeFbvmESHJDPUg=
+			XF4wYBlFFw56fAqk3ggmUtwnNQI=
 			</data>
 			<key>hash2</key>
 			<data>
-			zLOa3HG6r1FR8G3HAL3RBNLhvSx9Ru2iAlXyNPR6vuo=
+			sw1aNDI0CqTWoFwAl/BoysSnzVrJqfoRSzi3y6/KJCM=
 			</data>
 		</dict>
 		<key>PlugIns/buddhasTests.xctest.dSYM/Contents/Info.plist</key>
@@ -1013,11 +1025,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			eSGOb8UMBQ1ptcdR/vPpQhdXfIo=
+			W3fG+JPmniJvGlgTPMyrHYM8hME=
 			</data>
 			<key>hash2</key>
 			<data>
-			fW0OzQTQEQ0QY01/oFSuxx95UjBQfS5j20w9+O8sUgM=
+			lPJ3/I3bquhV4LCkr4QuHxc+wFx253GfoGf75TlHeB4=
+			</data>
+		</dict>
+		<key>Roboto.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			HR1B/K3Fcd7LZEQhG3mTuZzpJuI=
+			</data>
+			<key>hash2</key>
+			<data>
+			su+ryl6kvFbuqClxNwa1zQeIuCrKFTvUrd6bFXOTO08=
+			</data>
+		</dict>
+		<key>Roboto_medium.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			rbw73kJLz328OPFIAFyDGYJYkfI=
+			</data>
+			<key>hash2</key>
+			<data>
+			0Mj0SndLhJDO7imInNq8cjgfo1+2IWGaeP0oIR2QJBw=
 			</data>
 		</dict>
 		<key>SimpleLineIcons.ttf</key>
@@ -1040,6 +1074,17 @@
 			<key>hash2</key>
 			<data>
 			17EKHr4YMOWi8I9JA7moDiwZEsDdL3O5P88r+DIhZgI=
+			</data>
+		</dict>
+		<key>rubicon-icon-font.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			wWjJGa/hGKWVqUjSz9izW6v2ekU=
+			</data>
+			<key>hash2</key>
+			<data>
+			QidT7Dg0ix8cbNL7jAOGB1UJ8qZuZ1+mfLlrbeEAZhM=
 			</data>
 		</dict>
 	</dict>

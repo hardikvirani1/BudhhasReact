@@ -1,0 +1,219 @@
+import {
+    StackNavigation,
+    DrawerNavigation,
+    DrawerNavigationItem,
+    NavigationStyles,
+} from '@expo/ex-navigation';
+import React from 'react';
+import { Image, Text, View, StyleSheet,TouchableHighlight,TextInput,ScrollView ,FlatList,Dimensions,BackAndroid} from 'react-native';
+
+import cs from '../helper/customStyles';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+
+import { Container, Content, Grid, Col, Row, List, ListItem, Input } from 'native-base';
+import Router from '../NavigationHelper/Router'
+import Constant from '../helper/constants'// it as the intiial route for a top-level StackNavigation
+import csFont from '../helper/fontsize';
+import strings from '../helper/language';
+
+
+export default class DrawerNavigationLayout extends React.Component {
+
+    constructor(props){
+        super(props);
+    }
+
+    handleBackPress1 = () => {
+        BackAndroid.exitApp();
+        return true
+    };
+
+    componentDidMount() {
+        BackAndroid.addEventListener('hardwareBackPress1', this.handleBackPress1);
+    }
+    componentWillUnmount() {
+        BackAndroid.removeEventListener('hardwareBackPress1', this.handleBackPress1);
+    }
+
+    static route = {
+        navigationBar: {
+            visible: false,
+        }
+    };
+
+    closePressed = () => {
+        const { navigation } = this.props;
+        const navigator = navigation.getNavigator('mainDrawer');
+        navigator.toggleDrawer()
+    };
+
+    render() {
+        return (
+            <DrawerNavigation
+                id='mainDrawer'
+                navigatorUID="drawerNav"
+                initialItem='home'
+                drawerWidth={Constant.screenWidth}
+                renderHeader={this._renderHeader}
+            >
+                <DrawerNavigationItem
+                    id='home'
+                    selectedStyle={styles.selectedItemStyle}
+                    renderTitle={isSelected => this._renderTitle('Home', isSelected)}
+                >
+                    <StackNavigation
+                        id='home'
+                        initialRoute={Router.getRoute('homescreen')}
+                        defaultRouteConfig={{
+                                         navigationBar: {
+                                             visible: false,
+                                         },
+            styles: {
+              ...NavigationStyles.SlideHorizontal,
+            }
+
+                                     }}/>
+                </DrawerNavigationItem>
+                <DrawerNavigationItem
+                    id='allsites'
+                    selectedStyle={styles.selectedItemStyle}
+                    renderTitle={isSelected => this._renderTitle('AllSites', isSelected)}
+                >
+                    <StackNavigation
+                        id='allsites'
+                        initialRoute={Router.getRoute('videoplayer')}
+                        defaultRouteConfig={{
+                            navigationBar: {
+                                visible: false,
+                            },
+                            styles: {
+                                ...NavigationStyles.SlideHorizontal,
+                            }
+
+                        }}/>
+                </DrawerNavigationItem>
+                <DrawerNavigationItem
+                    id='footsteps'
+                    selectedStyle={styles.selectedItemStyle}
+                    renderTitle={isSelected => this._renderTitle('Footsteps', isSelected)}
+                >
+                    <StackNavigation
+                        id='footsteps'
+                        initialRoute={Router.getRoute('homescreen')}
+                        defaultRouteConfig={{
+                            navigationBar: {
+                                visible: false,
+                            },
+                            styles: {
+                                ...NavigationStyles.SlideHorizontal,
+                            }
+
+                        }}/>
+                </DrawerNavigationItem>
+                <DrawerNavigationItem
+                    id='store'
+                    selectedStyle={styles.selectedItemStyle}
+                    renderTitle={isSelected => this._renderTitle('Store', isSelected)}
+                >
+                    <StackNavigation
+                        id='store'
+                        initialRoute={Router.getRoute('homescreen')}
+                        defaultRouteConfig={{
+                            navigationBar: {
+                                visible: false,
+                            },
+                            styles: {
+                                ...NavigationStyles.SlideHorizontal,
+                            }
+
+                        }}/>
+                </DrawerNavigationItem>
+                <DrawerNavigationItem
+                    id='settings'
+                    selectedStyle={styles.selectedItemStyle}
+                    renderTitle={isSelected => this._renderTitle('Settings', isSelected)}
+                >
+                    <StackNavigation
+                        id='settings'
+                        initialRoute={Router.getRoute('homescreen')}
+                        defaultRouteConfig={{
+                            navigationBar: {
+                                visible: false,
+                            },
+                            styles: {
+                                ...NavigationStyles.SlideHorizontal,
+                            }
+
+                        }}/>
+                </DrawerNavigationItem>
+
+            </DrawerNavigation>
+        );
+    }
+
+ _renderHeader = () => {
+        return (
+            <View style={styles.header}>
+                <Text style={[cs.jcCenter,{padding:15}]}
+                      onPress={() => this.closePressed()}>
+                    <FontAwesome name='close' size={27} style={[cs.transparentBackground, cs.colorA8,cs.selfCenter]}/>
+                </Text>
+            </View>
+        );
+    };
+
+
+
+    getIcon = (title) =>{
+        if (title === "Home"){
+            return <FontAwesome name='home' size={25} style={[cs.transparentBackground, cs.colorA8]} />
+        }
+        if (title === "AllSites"){
+            return <FontAwesome name='paper-plane' size={20} style={[cs.transparentBackground, cs.colorA8]} />
+        }
+        if (title === "Footsteps"){
+            return <FontAwesome name='home' size={25} style={[cs.transparentBackground, cs.colorA8]} />
+        }
+        if (title === "Store"){
+            return <FontAwesome name='shopping-cart' size={25} style={[cs.transparentBackground, cs.colorA8]} />
+        }
+        if (title === "Settings"){
+            return <FontAwesome name='cog' size={25} style={[cs.transparentBackground, cs.colorA8]} />
+        }
+    };
+
+    _renderTitle(text: string, isSelected: boolean) {
+        return (
+            <Row style={{paddingLeft: 20,paddingRight: 0,paddingTop: 0,paddingBottom: 0,marginLeft: 10}}>
+                <Col size={1} style={[cs.jcCenter]}>
+                    <Text style={[cs.jcCenter]}>
+                        {this.getIcon(text)}
+                    </Text>
+                </Col>
+                <Col size={4} style={[cs.pl1,cs.jcCenter]}>
+                    <Text style={[cs.colorA8, csFont.TITLE_FONT]}>{text}</Text>
+                </Col>
+            </Row>
+        );
+    };
+}
+
+
+const styles = StyleSheet.create({
+    header: {
+        height: 45,
+        alignItems: 'flex-end',
+        backgroundColor: '#fff'
+    },
+
+    selectedItemStyle: {
+    },
+
+    titleText: {
+        fontWeight: 'bold'
+    },
+
+    selectedTitleText: {
+        color: 'white'
+    }
+});

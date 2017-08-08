@@ -1,28 +1,36 @@
 import React, {Component} from 'react';
 import { View, Text, } from 'react-native';
-import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
-import ReduxThunk from 'redux-thunk';
-import {StackNavigator} from 'react-navigation';
 import reducer from './reducers';
-import FirstScreen from './components/firstscreen';
-import SecondScreen from './components/secondscreen';
-import Register from './components/register';
-import Signin from "./components/signin";
+
+
+import Router from './NavigationHelper/Router'
+
+import {
+    StackNavigation,
+    NavigationProvider,NavigationStyles,
+    NavigationContext
+} from '@expo/ex-navigation';
+import navigationContext from './NavigationHelper/customNavigatorContex'
 
 export default class main extends Component {
     render(){
         return(
-            <Provider store={createStore(reducer, {}, applyMiddleware(ReduxThunk))}>
-                <StackNavBar/>
+            <Provider store={reducer}>
+                <NavigationProvider router={Router}  context={navigationContext}>
+                    <StackNavigation initialRoute={Router.getRoute('firstscreen')}
+                                     navigatorUID="mainNav"
+                                     defaultRouteConfig={{
+                                         navigationBar: {
+                                             visible: false,
+                                         },
+                                         styles: {
+                                             ...NavigationStyles.SlideHorizontal,
+                                             gestures: null,
+                                         }
+                                     }}/>
+                </NavigationProvider>
             </Provider>
         );
     }
 }
-
-const StackNavBar = StackNavigator({
-    firstscreen: {screen: FirstScreen},
-    secondscreen: {screen: SecondScreen},
-    register: {screen: Register},
-    signin: {screen: Signin},
-});

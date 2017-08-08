@@ -12,7 +12,6 @@ const isIOS = (Platform.OS === 'ios');
 
 const isAndroid = (Platform.OS === 'android');
 
-// 375
 const XLARGE_FONT = (30*width)/375;
 
 const LARGE_FONT = (25*width)/375;
@@ -20,7 +19,6 @@ const LARGE_FONT = (25*width)/375;
 const TITLE_FONT = (20*width)/375;
 
 const MEDIUM_FONT = (16*width)/375;
-
 
 const TEXTBOX_FONT = (15*width)/375;
 

@@ -4,14 +4,13 @@ import {StyleSheet, View, Text, TextInput, TouchableHighlight, Image, Dimensions
 const {height, width} = Dimensions.get('window');
 import font  from '../helper/fontsize';
 import strings from '../helper/language';
+import Router from '../NavigationHelper/Router'
+import { NavigationActions } from '@expo/ex-navigation';
+
 
 class SecondScreen extends Component {
-    static navigationOptions = {
-        header: null,
-    };
 
     render() {
-
         return (
             <View style={styles.mainView}>
                 <View style={styles.titleView}>
@@ -29,12 +28,12 @@ class SecondScreen extends Component {
                     <View style={{flex:1,justifyContent:'flex-end', }}>
                         <View style={{flexDirection:'row',marginBottom:20, }}>
                             <TouchableHighlight style={[styles.btnStyle, {borderRightWidth:1, borderRightColor:'gray'}]}
-                                                onPress={() => {this.props.navigation.navigate('register')}}>
+                                                underlayColor='transparent' onPress={() => {this.props.navigator.push('register')}}>
                                 <Text style={[font.MEDIUM_FONT,styles.titleText]}>{strings.register}</Text>
                             </TouchableHighlight>
 
-                            <TouchableHighlight style={[styles.btnStyle, {}]}
-                                                onPress={() => {this.props.navigation.navigate('signin')}}>
+                            <TouchableHighlight style={[styles.btnStyle, {}]} underlayColor='transparent'
+                                                onPress={() => {this.props.navigator.push('signin')}}>
                                 <Text style={[font.MEDIUM_FONT,styles.titleText]}>{strings.signin}</Text>
                             </TouchableHighlight>
                         </View>
