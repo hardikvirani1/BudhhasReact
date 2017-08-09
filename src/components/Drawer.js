@@ -15,7 +15,8 @@ import Router from '../NavigationHelper/Router'
 import Constant from '../helper/constants'// it as the intiial route for a top-level StackNavigation
 import csFont from '../helper/fontsize';
 import strings from '../helper/language';
-
+const width=Dimensions.get('window').width;
+const iconSize=(width*20)/326;
 
 export default class DrawerNavigationLayout extends React.Component {
 
@@ -81,7 +82,7 @@ export default class DrawerNavigationLayout extends React.Component {
                 >
                     <StackNavigation
                         id='allsites'
-                        initialRoute={Router.getRoute('videoplayer')}
+                        initialRoute={Router.getRoute('sites')}
                         defaultRouteConfig={{
                             navigationBar: {
                                 visible: false,
@@ -117,7 +118,7 @@ export default class DrawerNavigationLayout extends React.Component {
                 >
                     <StackNavigation
                         id='store'
-                        initialRoute={Router.getRoute('homescreen')}
+                        initialRoute={Router.getRoute('stores')}
                         defaultRouteConfig={{
                             navigationBar: {
                                 visible: false,
@@ -166,19 +167,19 @@ export default class DrawerNavigationLayout extends React.Component {
 
     getIcon = (title) =>{
         if (title === "Home"){
-            return <FontAwesome name='home' size={25} style={[cs.transparentBackground, cs.colorA8]} />
+            return <FontAwesome name='home' size={iconSize} style={[cs.transparentBackground, cs.colorA8]} />
         }
         if (title === "AllSites"){
-            return <FontAwesome name='paper-plane' size={20} style={[cs.transparentBackground, cs.colorA8]} />
+            return <FontAwesome name='paper-plane' size={iconSize-5} style={[cs.transparentBackground, cs.colorA8]} />
         }
         if (title === "Footsteps"){
-            return <FontAwesome name='home' size={25} style={[cs.transparentBackground, cs.colorA8]} />
+            return <FontAwesome name='home' size={iconSize} style={[cs.transparentBackground, cs.colorA8]} />
         }
         if (title === "Store"){
-            return <FontAwesome name='shopping-cart' size={25} style={[cs.transparentBackground, cs.colorA8]} />
+            return <FontAwesome name='shopping-cart' size={iconSize} style={[cs.transparentBackground, cs.colorA8]} />
         }
         if (title === "Settings"){
-            return <FontAwesome name='cog' size={25} style={[cs.transparentBackground, cs.colorA8]} />
+            return <FontAwesome name='cog' size={iconSize} style={[cs.transparentBackground, cs.colorA8]} />
         }
     };
 
@@ -191,7 +192,7 @@ export default class DrawerNavigationLayout extends React.Component {
                     </Text>
                 </Col>
                 <Col size={4} style={[cs.pl1,cs.jcCenter]}>
-                    <Text style={[cs.colorA8, csFont.TITLE_FONT]}>{text}</Text>
+                    <Text style={[cs.colorA8, csFont.MEDIUM_FONT]}>{text}</Text>
                 </Col>
             </Row>
         );
