@@ -14,6 +14,8 @@ let strings = new LocalizedStrings({
         confirmpassword: 'Confirm Password',
         couponcode: 'Coupon Code',
         home: 'Home',
+        store:'Store',
+        site:'All Sites',
     },
     // Spanish lang...
     en:{
@@ -27,6 +29,8 @@ let strings = new LocalizedStrings({
         confirmpassword: 'Confirmar contraseña',
         couponcode: 'Código promocional',
         home: 'Casa',
+        store: 'Almacenar',
+        site:'Todos los sitios',
     },
     // French lang....
     it: {
@@ -40,6 +44,8 @@ let strings = new LocalizedStrings({
         confirmpassword: 'Confirmez le mot de passe',
         couponcode: 'Code de coupon',
         home: 'Accueil',
+        store:'le magasin',
+        site: 'Tous les sites'
     }
 });
 

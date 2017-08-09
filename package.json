@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@expo/ex-navigation": "^3.0.0",
+    "axios": "^0.16.2",
     "babel-preset-react-native-stage-0": "^1.0.1",
     "eslint": "^4.3.0",
     "native-base": "^2.3.1",

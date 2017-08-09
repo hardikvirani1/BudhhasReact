@@ -7,12 +7,14 @@ import {
     Platform
 } from 'react-native';
 const baseURL = "http://lanetteam.com:8080";
+const storeScreenWidth=Dimensions.get('window').width;
 module.exports = {
 
     screen: Dimensions.get('window'),
     screenHeight:  Dimensions.get('window').height,
     screenWidth:  Dimensions.get('window').width,
-
+    storeScreen: (storeScreenWidth*100)/375,
+    sitesHeight: (storeScreenWidth*210)/375,
     lightBlueColor: 'rgb(34,122,176)',
     darkRedColor: 'rgb(243,38,2)',
     lightGreenColor: 'rgb(67,135,102)',

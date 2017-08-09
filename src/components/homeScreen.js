@@ -1,5 +1,6 @@
 import React from 'react';
-import { Image, Text, View, StyleSheet,TouchableHighlight, TouchableOpacity,TextInput,ScrollView ,FlatList,Dimensions,AsyncStorage} from 'react-native';
+import { Image, Text, View, StyleSheet,TouchableHighlight, TouchableOpacity,TextInput,ScrollView ,
+    FlatList,Dimensions,AsyncStorage} from 'react-native';
 import cs from '../helper/customStyles';
 import Entypo from 'react-native-vector-icons/Entypo';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -11,6 +12,7 @@ import {NavigationStyles} from '@expo/ex-navigation';
 import NavigationBar from './NavigationBar'
 import {withNavigation, createFocusAwareComponent} from '@expo/ex-navigation/src/ExNavigationComponents'
 import strings from '../helper/language';
+import font  from '../helper/fontsize';
 
 type Props = {
     isFocused: boolean,
@@ -31,7 +33,7 @@ class HomeScreen extends React.Component {
             rate: 1,
             volume: 1,
             muted: false,
-            resizeMode: 'cover',
+            resizeMode: 'stretch',
             duration: 0.0,
             currentTime: 0.0,
             controls: false,
@@ -65,7 +67,7 @@ class HomeScreen extends React.Component {
             <View style={styles.container}>
                     <Video
                         source={require('../../images/baadshah.mp4')}
-                        style={{ width: Constant.screenWidth,  height: Constant.screenHeight/3, backgroundColor: 'red' }}
+                        style={{ width: Constant.screenWidth,  height: Constant.screenHeight/3, }}
                         rate={this.state.rate}
                         paused={this.state.paused}
                         volume={this.state.volume}
@@ -77,12 +79,47 @@ class HomeScreen extends React.Component {
                         onProgress={this.onProgress}
                         repeat={true}
                     />
-                <TouchableOpacity onPress={() => {this.setState({paused: !this.state.paused})}}>
-                    <Icon name="pause" />
-                </TouchableOpacity>
-                <Text style={{color:'white', backgroundColor:'transparent'}}>{this.state.currentTime}</Text>
+                    <View style={{flexDirection:'row', backgroundColor:'rgba(232,232,232,1)'}}>
+                        <View style={{margin:8, justifyContent:'center',}}>
+                            <Text style={{fontWeight:'bold', backgroundColor:'transparent'}[font.LARGE_FONT]}>
+                                Information
+                            </Text>
+                        </View>
+                        <View style={{margin:8}}>
+                            <TouchableOpacity onPress={() => {this.setState({paused: !this.state.paused})}}>
+                                {this.renderVideoPlayerImage()}
+                            </TouchableOpacity>
+                        </View>
+                        <View style={{margin:8, justifyContent:'center' }}>
+                            <Text style={{ backgroundColor:'transparent'}[font.TITLE_FONT]}>
+                                {parseInt(this.state.currentTime)}
+                            </Text>
+                        </View>
+                    </View>
             </View>
         );
+    };
+
+    renderVideoPlayerImage = () => {
+        if(this.state.paused){
+            return <Icon name="play-arrow" />
+        }
+        else {
+            return <Icon name="pause" />
+        }
+    };
+
+    renderImages = () => {
+        return(
+            <View style={styles.viewImages}>
+                <TouchableHighlight style={styles.btnimages} onPress={() => {
+                    this.props.navigator.push('sites',{isFromHomeScreen: true});
+                }}>
+                    <Image source={require('../../images/buddha.jpeg')}
+                           style={{ width: Constant.screenWidth-30,}}/>
+                </TouchableHighlight>
+            </View>
+        )
     };
 
     menuPressed = () => {
@@ -101,6 +138,8 @@ class HomeScreen extends React.Component {
                 />
 
                 {this.renderCustomVideo()}
+
+                {this.renderImages()}
             </View>
         );
     }
@@ -118,7 +157,7 @@ const styles = StyleSheet.create({
         right: 0,
     },
     container: {
-        flex: 1,
+        //flex: 1,
     },
     fullScreen: {
         position: 'absolute',
@@ -127,94 +166,16 @@ const styles = StyleSheet.create({
         bottom: 0,
         right: 0,
     },
-    controls: {
-        backgroundColor: "transparent",
-        borderRadius: 5,
-        position: 'absolute',
-        bottom: 10,
-        left: 5,
-        right: 5,
+    viewImages: {
+        height: Constant.screenWidth*0.3,
+        width: Constant.screenWidth-30,
+        alignSelf:'center',
+        borderTopWidth:1,
+        borderTopColor:'lightgray',
+        marginTop:4
     },
-    backView:{
-        height:60,
-        width:60,
-        position:'absolute',
-        top:10,
-        left:10,
-        paddingLeft:5,
-        paddingTop:10,
-        backgroundColor:Constant.transparent
-    },
-    outerView:{
-        flexDirection: 'row',
-        alignItems:'center',
-        justifyContent: 'center',
-        backgroundColor: Constant.transparent,
-        height:50,
-        bottom: 10,
-        left: 5,
-        right: 5,
-        position: 'absolute'
-    },
-    progress: {
-        flex: 1,
-        flexDirection: 'row',
-        borderRadius: 2,
-        overflow: 'hidden',
-    },
-    innerProgressCompleted: {
-        height: 5,
-        backgroundColor: '#cccccc',
-    },
-    innerProgressRemaining: {
-        height: 5,
-        backgroundColor: '#2C2C2C',
-    },
-    generalControls: {
-        flex: 1,
-        flexDirection: 'row',
-        // overflow: 'hidden',
-        justifyContent: 'center',
-        alignItems:'center'
-    },
-    skinControl: {
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'center',
-    },
-    rateControl: {
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'center',
-    },
-    volumeControl: {
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'center',
-    },
-    resizeModeControl: {
-        flex: 1,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    ignoreSilentSwitchControl: {
-        flex: 1,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    controlOption: {
-        alignSelf: 'center',
-        fontSize: 11,
-        color: "white",
-        paddingLeft: 2,
-        paddingRight: 2,
-        lineHeight: 12,
-    },
-    nativeVideoControls: {
-        top: 184,
-        height: 300
+    btnimages: {
+        marginTop:4,
     }
 });
 
