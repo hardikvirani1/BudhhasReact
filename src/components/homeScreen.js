@@ -116,7 +116,7 @@ class HomeScreen extends React.Component {
                     this.props.navigator.push('sites',{isFromHomeScreen: true});
                 }}>
                     <Image source={require('../../images/buddha.jpeg')}
-                           style={{ width: Constant.screenWidth-30,}}/>
+                           style={{ width: Constant.screenWidth-30, height: Constant.screenWidth/1.75}}/>
                 </TouchableHighlight>
             </View>
         )
@@ -139,7 +139,9 @@ class HomeScreen extends React.Component {
 
                 {this.renderCustomVideo()}
 
-                {this.renderImages()}
+                <ScrollView>
+                    {this.renderImages()}
+                </ScrollView>
             </View>
         );
     }

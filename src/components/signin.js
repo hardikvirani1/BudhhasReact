@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text, TouchableHighlight, Image, Dimensions, TextInput} from 'react-native';
+import {StyleSheet, View, Text, TouchableHighlight, Image, Dimensions, TextInput, Platform} from 'react-native';
 import {connect, } from 'react-redux';
 import font from '../helper/fontsize';
 import * as actions from '../actions'
@@ -79,6 +79,7 @@ const styles = StyleSheet.create({
     },
     titleView:{
         justifyContent:'center',
+        marginTop:-50,
         width,
         height: height/2.5,
     },
@@ -100,11 +101,10 @@ const styles = StyleSheet.create({
     input: {
         width:width-100,
         margin: 10,
-        height: 30,
+        height: (Platform.OS === 'ios') ? 30 : 60,
         borderBottomColor: '#007AFF',
         borderBottomWidth: 1
     },
-
     submitButton: {
         height: 30,
         margin:10,
@@ -114,7 +114,6 @@ const styles = StyleSheet.create({
         width:width-100,
         alignItems:'center'
     },
-
     submitButtonText:{
         color: '#007AFF',
     }

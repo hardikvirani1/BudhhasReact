@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text, TouchableHighlight, Image, Dimensions, TextInput} from 'react-native';
+import {StyleSheet, View, Text, TouchableHighlight, Image, Dimensions, TextInput, Platform} from 'react-native';
 import {connect, } from 'react-redux';
 import NavigationBar from './NavigationBar';
 import Constant from '../helper/constants';
@@ -97,6 +97,7 @@ const styles = StyleSheet.create({
         flex:1,
     },
     titleView:{
+        marginTop:-50,
         justifyContent:'center',
         width,
         height: height/2.5,
@@ -119,7 +120,7 @@ const styles = StyleSheet.create({
     input: {
         width:width-100,
         margin: 10,
-        height: 30,
+        height: (Platform.OS === 'ios') ? 30 : 60,
         borderBottomColor: '#007AFF',
         borderBottomWidth: 1
     },

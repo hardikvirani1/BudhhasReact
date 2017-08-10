@@ -35,7 +35,7 @@ class Sites extends Component{
         return (
             <View style={styles.container}>
                 <Text>
-                    Loading movies...
+                    Loading sites...
                 </Text>
             </View>
         );

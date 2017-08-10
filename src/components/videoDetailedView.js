@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image, Text, View, StyleSheet,TouchableHighlight, TouchableOpacity,TextInput,ScrollView ,
-    FlatList,Dimensions,AsyncStorage} from 'react-native';
+    FlatList,Dimensions,AsyncStorage, } from 'react-native';
 import cs from '../helper/customStyles';
 import Entypo from 'react-native-vector-icons/Entypo';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -126,7 +126,7 @@ class HomeScreen extends React.Component {
                     <Text style={{fontWeight:'bold', alignSelf:'center', margin:10 }}>Next Site</Text>
                     <TouchableHighlight style={styles.btnimages} onPress={() => {}}>
                         <Image source={require('../../images/buddha.jpeg')}
-                               style={{ width: Constant.screenWidth-30,}}/>
+                               style={{ width: Constant.screenWidth-30, height: Constant.screenWidth/1.75}}/>
                     </TouchableHighlight>
                 </View>
             </View>
@@ -160,7 +160,9 @@ class HomeScreen extends React.Component {
                 }
                 {this.renderCustomVideo()}
 
-                {this.renderImages()}
+                <ScrollView>
+                    {this.renderImages()}
+                </ScrollView>
             </View>
         );
     }
