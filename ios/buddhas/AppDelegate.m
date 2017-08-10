@@ -8,15 +8,18 @@
  */
 
 #import "AppDelegate.h"
-
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+#import "IQKeyboardManager.h"
+
 #import <AVFoundation/AVFoundation.h>  // import
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  [[IQKeyboardManager sharedManager] setEnableAutoToolbar:NO];
+
   NSURL *jsCodeLocation;
 
   [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:nil];  // allow

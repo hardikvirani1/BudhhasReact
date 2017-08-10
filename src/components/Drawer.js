@@ -11,8 +11,8 @@ import cs from '../helper/customStyles';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import { Container, Content, Grid, Col, Row, List, ListItem, Input } from 'native-base';
-import Router from '../NavigationHelper/Router'
-import Constant from '../helper/constants'// it as the intiial route for a top-level StackNavigation
+import Router from '../NavigationHelper/Router';
+import Constant from '../helper/constants';
 import csFont from '../helper/fontsize';
 import strings from '../helper/language';
 const width=Dimensions.get('window').width;

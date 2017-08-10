@@ -22,7 +22,9 @@ class Register extends Component {
     backPressed = () => {
         this.props.navigator.pop()
     };
-
+    focusNextField = (nextField) => {
+        this.refs[nextField].focus();
+    };
     render() {
 
         return (
@@ -40,7 +42,10 @@ class Register extends Component {
                 <View style={styles.contentView}>
                     <View>
                         <TextInput style = {[font.TEXTBOX_FONT,styles.input]}
+                                   ref="email"
+                                   returnKeyType={"next"}
                                    underlineColorAndroid = "transparent"
+                                   onSubmitEditing={() => this.focusNextField('password')}
                                    placeholder = {strings.email}
                                    autoCorrect={false}
                                    autoCapitalize = "none"
@@ -51,6 +56,9 @@ class Register extends Component {
 
                         <TextInput style = {[font.TEXTBOX_FONT,styles.input]}
                                    underlineColorAndroid = "transparent"
+                                   returnKeyType={"next"}
+                                   ref="password"
+                                   onSubmitEditing={() => this.focusNextField('confirm')}
                                    placeholder = {strings.password}
                                    secureTextEntry
                                    autoCorrect={false}
@@ -60,7 +68,10 @@ class Register extends Component {
                         />
 
                         <TextInput style = {[font.TEXTBOX_FONT,styles.input]}
+                                   ref="confirm"
+                                   returnKeyType={"next"}
                                    underlineColorAndroid = "transparent"
+                                   onSubmitEditing={() => this.focusNextField('coupon')}
                                    placeholder = {strings.confirmpassword}
                                    secureTextEntry
                                    autoCorrect={false}
@@ -70,6 +81,8 @@ class Register extends Component {
                         />
 
                         <TextInput style = {[font.TEXTBOX_FONT,styles.input]}
+                                   ref="coupon"
+                                   returnKeyType={"done"}
                                    underlineColorAndroid = "transparent"
                                    placeholder = {strings.couponcode}
                                    autoCorrect={false}
@@ -82,7 +95,7 @@ class Register extends Component {
                     <View style={{flex:1, justifyContent:'flex-end', marginBottom:20}}>
                         <TouchableHighlight style = {styles.submitButton}
                                             underlayColor='transparent' onPress={this.onCreateSet}>
-                            <Text style = {[styles.submitButtonText, font.TEXTBOX_FONT]}>{strings.register}</Text>
+                            <Text ref="register" style = {[styles.submitButtonText, font.TEXTBOX_FONT]}>{strings.register}</Text>
                         </TouchableHighlight>
                     </View>
                 </View>
@@ -120,7 +133,7 @@ const styles = StyleSheet.create({
     input: {
         width:width-100,
         margin: 10,
-        height: (Platform.OS === 'ios') ? 30 : 60,
+        height: (Platform.OS === 'ios') ? 30 : 40,
         borderBottomColor: '#007AFF',
         borderBottomWidth: 1
     },

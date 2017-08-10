@@ -3,7 +3,7 @@ import { Image, Text, View, StyleSheet,TouchableHighlight} from 'react-native';
 import cs from '../helper/customStyles';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {  Button, Grid, Col} from 'native-base';
+import {Button, Grid, Col} from 'native-base';
 import {
     NavigationStyles
 } from '@expo/ex-navigation';

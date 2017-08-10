@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text, TouchableHighlight, Image, Dimensions, TextInput, Platform} from 'react-native';
+import {StyleSheet,Alert, View, Text, TouchableHighlight, Image, Dimensions, TextInput, Platform} from 'react-native';
 import {connect, } from 'react-redux';
 import font from '../helper/fontsize';
 import * as actions from '../actions'
@@ -9,7 +9,6 @@ import Constant from '../helper/constants';
 const {height, width} = Dimensions.get('window');
 import strings from '../helper/language';
 
-
 class Signin extends Component {
     static navigationOptions = {
         header:null
@@ -18,11 +17,42 @@ class Signin extends Component {
 
     onLoginSet = () => {
         const {email, password} = this.props;
-        this.props.userLogin({email, password});
+        if (email) {
+
+            if (!this.validateEmail(this.props.email.trim())) {
+                this.showAlertMsg('Enter valid Email Address');
+
+            }
+            else{
+                this.props.userLogin({email, password});
+            }
+        }else {
+            this.showAlertMsg('Enter Email Address.');
+        }
     };
 
     backPressed = () => {
         this.props.navigator.pop()
+    };
+
+    focusNextField = (nextField) => {
+        this.refs[nextField].focus();
+    };
+    showAlertMsg = (alertText)  => {
+        Alert.alert("Buddha's App",
+            alertText,
+            [
+                {text: 'OK', onPress: () => console.log('OK Pressed')},
+            ],
+            { cancelable: false }
+        )
+    };
+    validateEmail = (email) => {
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+    };
+    onSubmitPressed = () => {
+
     };
 
     render() {
@@ -41,6 +71,9 @@ class Signin extends Component {
                 <View style={styles.contentView}>
                     <View>
                         <TextInput style = {[font.TEXTBOX_FONT,styles.input]}
+                                   ref="email"
+                                   returnKeyType={"next"}
+                                   onSubmitEditing={() => this.focusNextField('password')}
                                    underlineColorAndroid = "transparent"
                                    placeholder = {strings.email}
                                    autoCapitalize = "none"
@@ -51,6 +84,8 @@ class Signin extends Component {
 
                         <TextInput style = {[font.TEXTBOX_FONT,styles.input]}
                                    underlineColorAndroid = "transparent"
+                                   ref="password"
+                                   returnKeyType={"done"}
                                    placeholder = {strings.password}
                                    secureTextEntry
                                    autoCorrect={false}
@@ -101,7 +136,7 @@ const styles = StyleSheet.create({
     input: {
         width:width-100,
         margin: 10,
-        height: (Platform.OS === 'ios') ? 30 : 60,
+        height: (Platform.OS === 'ios') ? 30 : 40,
         borderBottomColor: '#007AFF',
         borderBottomWidth: 1
     },

@@ -50,6 +50,7 @@ class HomeScreen extends React.Component {
             duration: data.duration,
             isLoad:false
         });
+        console.log('time',data.duration)
     }
 
     onBuffer({ isBuffering }: { isBuffering: boolean }) {
@@ -169,8 +170,6 @@ const styles = StyleSheet.create({
         right: 0,
     },
     viewImages: {
-        height: Constant.screenWidth*0.3,
-        width: Constant.screenWidth-30,
         alignSelf:'center',
         borderTopWidth:1,
         borderTopColor:'lightgray',

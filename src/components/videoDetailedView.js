@@ -145,7 +145,7 @@ class HomeScreen extends React.Component {
                 {
                     (this.props.route.params.isFromHomeScreen === true)&&
                     <NavigationBar
-                        navTitle={strings.site}
+                        navTitle="Lumbini"
                         leftButtonPressed = { this.backPressed }
                         leftButtonType = {Constant.navButtonType.back}
                     />
@@ -190,8 +190,6 @@ const styles = StyleSheet.create({
         right: 0,
     },
     viewImages: {
-        height: Constant.screenWidth*0.3,
-        width: Constant.screenWidth-30,
         alignSelf:'center',
         borderTopWidth:1,
         borderTopColor:'lightgray',
