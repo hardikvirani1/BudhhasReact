@@ -42,9 +42,30 @@ class Sites extends Component{
     }
 
     render(){
-
         if (!this.state.loaded) {
-            return this.renderLoadingView();
+            return(
+                <View style={{flex:1}}>
+                    {
+                        (this.props.route.params.isFromHomeScreen === true)&&
+                        <NavigationBar
+                            navTitle={strings.site}
+                            leftButtonPressed = { this.backPressed }
+                            leftButtonType = {Constant.navButtonType.back}
+                        />
+                        ||
+                        <NavigationBar
+                            navTitle={strings.site}
+                            leftButtonPressed = { this.menuPressed }
+                            leftButtonType = {Constant.navButtonType.menu}
+                        />
+
+
+                    }
+                        <View style={styles.container}>
+                            {this.renderLoadingView()}
+                        </View>
+                </View>
+            );
         }
 
         return(
@@ -79,9 +100,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-        borderBottomWidth: 1,
-        borderBottomColor: 'lightgray'
     },
 });
 

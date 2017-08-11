@@ -12,7 +12,8 @@ const StoreItem = (props) =>{
 
             <CardSection style={{flex:1}}>
                 <View style={{flexDirection:'column'}}>
-                      <Image source={{uri:props.user.image}} style = {{ width: Constant.storeScreen, height: Constant.storeScreen }} />
+                      <Image source={{uri:props.user.image}} style = {{ width: Constant.storeScreen,
+                          height: Constant.storeScreen }} />
                 </View>
                 <View style={{flex:1,marginLeft:10,flexDirection:'row'}}>
                     <View style={{alignSelf:'flex-start'}}>
