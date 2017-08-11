@@ -135,10 +135,10 @@ const styles = StyleSheet.create({
     },
     input: {
         width:width-100,
-        margin: 10,
-        height: (Platform.OS === 'ios') ? 30 : 40,
+        height: (Platform.OS === 'android') ? 40 : 30,
         borderBottomColor: '#007AFF',
-        borderBottomWidth: 1
+        borderBottomWidth: 1,
+        margin: (Platform.OS === 'android') ? 0 : 10,
     },
     submitButton: {
         height: 30,

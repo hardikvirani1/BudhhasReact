@@ -37,7 +37,18 @@ class Store extends Component{
 
     render(){
         if (!this.state.loaded) {
-            return this.renderLoadingView();
+            return(
+                <View style={{flex:1}}>
+                    <NavigationBar
+                        navTitle={strings.store}
+                        leftButtonPressed = { this.menuPressed }
+                        leftButtonType = {Constant.navButtonType.menu}
+                    />
+                    <View style={styles.container}>
+                        {this.renderLoadingView()}
+                    </View>
+                </View>
+            );
         }
 
         return(
@@ -49,8 +60,8 @@ class Store extends Component{
                 />
 
                 <ScrollView>
-                {this.renderUsers()}
-            </ScrollView>
+                    {this.renderUsers()}
+                </ScrollView>
             </View>
         );
     }
@@ -62,9 +73,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-        borderBottomWidth: 1,
-        borderBottomColor: 'lightgray'
     },
 });
 

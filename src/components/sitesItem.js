@@ -13,8 +13,11 @@ const SitesItem = (props) =>{
         <CardSection>
         <View style={styles.container}>
             <TouchableOpacity onPress={() => props.navigation.push('videodetailedview',{isFromHomeScreen: true})}>
-                <Image source={{uri:props.user.image}} style = {{opacity:0.9, width: Constant.screenWidth-((Constant.screenWidth*6)/100), height: Constant.sitesHeight }} >
-                    <Text style={{ color:'white',marginRight:5,alignSelf:'flex-end',backgroundColor: 'rgba(0,0,0,0)',backgroundColor:'transparent',fontSize:fontsize}}>
+                <Image source={{uri:props.user.image}}
+                       style = {{opacity:0.9, width: Constant.screenWidth-((Constant.screenWidth*6)/100),
+                           height: Constant.sitesHeight }} >
+                    <Text style={{ color:'white',marginRight:5,alignSelf:'flex-end',
+                        backgroundColor: 'rgba(0,0,0,0)',backgroundColor:'transparent',fontSize:fontsize}}>
                         {props.user.title}
                     </Text>
                 </Image>
@@ -22,7 +25,6 @@ const SitesItem = (props) =>{
         </View>
         </CardSection>
     );
-
 };
 const styles= {
     container: {
@@ -31,5 +33,5 @@ const styles= {
         alignItems: 'center',
         justifyContent: 'center'
     }
-}
+};
 export default SitesItem

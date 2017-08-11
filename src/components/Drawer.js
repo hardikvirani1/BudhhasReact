@@ -5,7 +5,7 @@ import {
     NavigationStyles,
 } from '@expo/ex-navigation';
 import React from 'react';
-import { Image, Text, View, StyleSheet,TouchableHighlight,TextInput,ScrollView ,FlatList,Dimensions,BackAndroid} from 'react-native';
+import { Image, Text, View, StyleSheet,TouchableHighlight,TextInput,ScrollView ,FlatList,Dimensions,BackHandler} from 'react-native';
 
 import cs from '../helper/customStyles';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -25,15 +25,15 @@ export default class DrawerNavigationLayout extends React.Component {
     }
 
     handleBackPress1 = () => {
-        BackAndroid.exitApp();
+        BackHandler.exitApp();
         return true
     };
 
     componentDidMount() {
-        BackAndroid.addEventListener('hardwareBackPress1', this.handleBackPress1);
+        BackHandler.addEventListener('hardwareBackPress1', this.handleBackPress1);
     }
     componentWillUnmount() {
-        BackAndroid.removeEventListener('hardwareBackPress1', this.handleBackPress1);
+        BackHandler.removeEventListener('hardwareBackPress1', this.handleBackPress1);
     }
 
     static route = {
