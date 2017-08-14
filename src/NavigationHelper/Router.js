@@ -1,8 +1,5 @@
-import {
-    createRouter,
-} from '@expo/ex-navigation';
+import {createRouter} from '@expo/ex-navigation';
 import React from 'react';
-
 
 import mainscreen from '../components/Drawer'
 import homescreen from '../components/homeScreen'

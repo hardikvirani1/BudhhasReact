@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text, TouchableHighlight, Image, Dimensions, TextInput, Platform} from 'react-native';
+import {StyleSheet,ScrollView, View, Text, TouchableHighlight, Image, Dimensions, TextInput, Platform} from 'react-native';
 import {connect, } from 'react-redux';
 import NavigationBar from './NavigationBar';
 import Constant from '../helper/constants';
@@ -9,12 +9,15 @@ import strings from '../helper/language';
 
 const {height, width} = Dimensions.get('window');
 
+
+
 class Register extends Component {
     static navigationOptions = {
         header:null,
     };
 
     onCreateSet = () => {
+        console.log(height);
         const {email, password, repassword, coupon} = this.props;
         this.props.userCreates({email, password, repassword, coupon});
     };
@@ -33,14 +36,14 @@ class Register extends Component {
                     leftButtonPressed = { this.backPressed }
                     leftButtonType = {Constant.navButtonType.back}
                 />
-                <View style={[styles.titleView,]}>
-                    <Text style={[font.TITLE_FONT,styles.titleText]}>{strings.in}</Text>
-                    <Text style={[font.XLARGE_FONT,styles.titleText]}>{strings.buddha}</Text>
-                    <Text style={[font.MEDIUM_FONT,styles.titleText]}>{strings.footsteps}</Text>
-                </View>
+                <ScrollView scrollEnabled={false}>
+                    <View style={[styles.titleView,]}>
+                        <Text style={[font.TITLE_FONT,styles.titleText]}>{strings.in}</Text>
+                        <Text style={[font.XLARGE_FONT,styles.titleText]}>{strings.buddha}</Text>
+                        <Text style={[font.MEDIUM_FONT,styles.titleText]}>{strings.footsteps}</Text>
+                    </View>
 
-                <View style={styles.contentView}>
-                    <View>
+                    <View style={styles.contentView}>
                         <TextInput style = {[font.TEXTBOX_FONT,styles.input]}
                                    ref="email"
                                    returnKeyType={"next"}
@@ -90,14 +93,16 @@ class Register extends Component {
                                    value={this.props.coupon}
                                    onChangeText={(text) => {this.props.userRegisterUpdate({ prop: 'coupon', value: text});}}
                         />
+
                     </View>
 
-                    <View style={{flex:1, justifyContent:'flex-end', marginBottom:20}}>
-                        <TouchableHighlight style = {styles.submitButton}
-                                            underlayColor='transparent' onPress={this.onCreateSet}>
-                            <Text ref="register" style = {[styles.submitButtonText, font.TEXTBOX_FONT]}>{strings.register}</Text>
-                        </TouchableHighlight>
-                    </View>
+                </ScrollView>
+                <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+
+                    <TouchableHighlight style = {styles.submitButton}
+                                        underlayColor='transparent' onPress={this.onCreateSet}>
+                        <Text ref="register" style = {[styles.submitButtonText, font.TEXTBOX_FONT]}>{strings.register}</Text>
+                    </TouchableHighlight>
                 </View>
             </View>
         );
@@ -135,12 +140,11 @@ const styles = StyleSheet.create({
         height: (Platform.OS === 'android') ? 40 : 30,
         borderBottomColor: '#007AFF',
         borderBottomWidth: 1,
-        margin: (Platform.OS === 'android') ? 0 : 10,
+        margin: (Platform.OS === 'android') ? 5 : 10,
     },
-
     submitButton: {
+        marginBottom:20,
         height: 30,
-        margin:10,
         borderColor:'#007AFF',
         borderWidth:1,
         justifyContent:'center',
