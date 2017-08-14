@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet,Alert, View, Text, TouchableHighlight, Image, Dimensions, TextInput, Platform} from 'react-native';
+import {StyleSheet,ScrollView,Alert, View, Text, TouchableHighlight, Image, Dimensions, TextInput, Platform} from 'react-native';
 import {connect, } from 'react-redux';
 import font from '../helper/fontsize';
 import * as actions from '../actions'
@@ -9,6 +9,7 @@ import Constant from '../helper/constants';
 const {height, width} = Dimensions.get('window');
 import strings from '../helper/language';
 
+
 class Signin extends Component {
     static navigationOptions = {
         header:null
@@ -17,6 +18,7 @@ class Signin extends Component {
 
     onLoginSet = () => {
         const {email, password} = this.props;
+        console.log(height);
         if (email) {
 
             if (!this.validateEmail(this.props.email.trim())) {
@@ -62,14 +64,16 @@ class Signin extends Component {
                     leftButtonPressed = { this.backPressed }
                     leftButtonType = {Constant.navButtonType.back}
                 />
-                <View style={[styles.titleView,]}>
-                    <Text style={[font.TITLE_FONT,styles.titleText]}>{strings.in}</Text>
-                    <Text style={[font.XLARGE_FONT,styles.titleText]}>{strings.buddha}</Text>
-                    <Text style={[font.MEDIUM_FONT,styles.titleText]}>{strings.footsteps}</Text>
-                </View>
+                <ScrollView scrollEnabled={false}>
 
-                <View style={styles.contentView}>
-                    <View>
+                    <View style={[styles.titleView,]}>
+                        <Text style={[font.TITLE_FONT,styles.titleText]}>{strings.in}</Text>
+                        <Text style={[font.XLARGE_FONT,styles.titleText]}>{strings.buddha}</Text>
+                        <Text style={[font.MEDIUM_FONT,styles.titleText]}>{strings.footsteps}</Text>
+                    </View>
+
+                    <View style={styles.contentView}>
+
                         <TextInput style = {[font.TEXTBOX_FONT,styles.input]}
                                    ref="email"
                                    returnKeyType={"next"}
@@ -93,14 +97,14 @@ class Signin extends Component {
                                    value={this.props.password}
                                    onChangeText={(text) => {this.props.userLoginUpdate({ prop: 'password', value: text});}}
                         />
-                    </View>
 
-                    <View style={{flex:1, justifyContent:'flex-end', marginBottom:30}}>
-                        <TouchableHighlight style = {styles.submitButton}
-                                            underlayColor='transparent' onPress={this.onLoginSet}>
-                            <Text style = {[styles.submitButtonText, font.TEXTBOX_FONT]}>{strings.signin}</Text>
-                        </TouchableHighlight>
                     </View>
+                </ScrollView>
+                <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+                    <TouchableHighlight style = {styles.submitButton}
+                                        underlayColor='transparent' onPress={this.onLoginSet}>
+                        <Text style = {[styles.submitButtonText, font.TEXTBOX_FONT]}>{strings.signin}</Text>
+                    </TouchableHighlight>
                 </View>
             </View>
         );
@@ -117,6 +121,7 @@ const styles = StyleSheet.create({
         marginTop:-50,
         width,
         height: height/2.5,
+        flexDirection:'column'
     },
     contentView: {
         flex:1,
@@ -138,11 +143,11 @@ const styles = StyleSheet.create({
         height: (Platform.OS === 'android') ? 40 : 30,
         borderBottomColor: '#007AFF',
         borderBottomWidth: 1,
-        margin: (Platform.OS === 'android') ? 0 : 10,
+        margin: (Platform.OS === 'android') ? 5 : 10,
     },
     submitButton: {
         height: 30,
-        margin:10,
+        marginBottom:20,
         borderColor:'#007AFF',
         borderWidth:1,
         justifyContent:'center',
