@@ -873,6 +873,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = Y55EBSG532;
+						ProvisioningStyle = Manual;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1446,7 +1447,10 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.citrus.org;
 				PRODUCT_NAME = buddhas;
+				PROVISIONING_PROFILE = "aec02155-7d01-43cb-9a15-e0cc5b6e9011";
+				PROVISIONING_PROFILE_SPECIFIER = adhoc_citrus;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1470,7 +1474,10 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.citrus.org;
 				PRODUCT_NAME = buddhas;
+				PROVISIONING_PROFILE = "aec02155-7d01-43cb-9a15-e0cc5b6e9011";
+				PROVISIONING_PROFILE_SPECIFIER = adhoc_citrus;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -1622,7 +1629,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: LA NET TEAM SOFTWARE SOLUTIONS PRIVATE LIMITED (Y55EBSG532)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: LA NET TEAM SOFTWARE SOLUTIONS PRIVATE LIMITED (Y55EBSG532)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1663,7 +1671,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: LA NET TEAM SOFTWARE SOLUTIONS PRIVATE LIMITED (Y55EBSG532)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: LA NET TEAM SOFTWARE SOLUTIONS PRIVATE LIMITED (Y55EBSG532)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
