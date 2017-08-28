@@ -60,7 +60,7 @@ export default class DrawerNavigationLayout extends React.Component {
                 <DrawerNavigationItem
                     id='home'
                     selectedStyle={styles.selectedItemStyle}
-                    renderTitle={isSelected => this._renderTitle('Home', isSelected)}
+                    renderTitle={isSelected => this._renderTitle(strings.home, isSelected)}
                 >
                     <StackNavigation
                         id='home'
@@ -78,7 +78,7 @@ export default class DrawerNavigationLayout extends React.Component {
                 <DrawerNavigationItem
                     id='allsites'
                     selectedStyle={styles.selectedItemStyle}
-                    renderTitle={isSelected => this._renderTitle('AllSites', isSelected)}
+                    renderTitle={isSelected => this._renderTitle(strings.site, isSelected)}
                 >
                     <StackNavigation
                         id='allsites'
@@ -96,7 +96,7 @@ export default class DrawerNavigationLayout extends React.Component {
                 <DrawerNavigationItem
                     id='footsteps'
                     selectedStyle={styles.selectedItemStyle}
-                    renderTitle={isSelected => this._renderTitle('Footsteps', isSelected)}
+                    renderTitle={isSelected => this._renderTitle(strings.Footsteps, isSelected)}
                 >
                     <StackNavigation
                         id='footsteps'
@@ -114,7 +114,7 @@ export default class DrawerNavigationLayout extends React.Component {
                 <DrawerNavigationItem
                     id='store'
                     selectedStyle={styles.selectedItemStyle}
-                    renderTitle={isSelected => this._renderTitle('Store', isSelected)}
+                    renderTitle={isSelected => this._renderTitle(strings.store, isSelected)}
                 >
                     <StackNavigation
                         id='store'
@@ -132,7 +132,7 @@ export default class DrawerNavigationLayout extends React.Component {
                 <DrawerNavigationItem
                     id='settings'
                     selectedStyle={styles.selectedItemStyle}
-                    renderTitle={isSelected => this._renderTitle('Settings', isSelected)}
+                    renderTitle={isSelected => this._renderTitle(strings.Settings, isSelected)}
                 >
                     <StackNavigation
                         id='settings'
@@ -166,19 +166,19 @@ export default class DrawerNavigationLayout extends React.Component {
 
 
     getIcon = (title) =>{
-        if (title === "Home"){
+        if (title === strings.home){
             return <FontAwesome name='home' size={iconSize} style={[cs.transparentBackground, cs.colorA8]} />
         }
-        if (title === "AllSites"){
+        if (title === strings.site){
             return <FontAwesome name='paper-plane' size={iconSize-5} style={[cs.transparentBackground, cs.colorA8]} />
         }
-        if (title === "Footsteps"){
+        if (title === strings.Footsteps){
             return <FontAwesome name='home' size={iconSize} style={[cs.transparentBackground, cs.colorA8]} />
         }
-        if (title === "Store"){
+        if (title === strings.store){
             return <FontAwesome name='shopping-cart' size={iconSize} style={[cs.transparentBackground, cs.colorA8]} />
         }
-        if (title === "Settings"){
+        if (title === strings.Settings){
             return <FontAwesome name='cog' size={iconSize} style={[cs.transparentBackground, cs.colorA8]} />
         }
     };

@@ -29,7 +29,7 @@ class Store extends Component{
         return (
             <View style={styles.container}>
                 <Text>
-                    Loading stores...
+                    {strings.loading}
                 </Text>
             </View>
         );

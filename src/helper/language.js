@@ -16,6 +16,10 @@ let strings = new LocalizedStrings({
         home: 'Home',
         store:'Store',
         site:'All Sites',
+        loading: 'Loading stores...',
+        Footsteps: 'Footsteps',
+        Settings: 'Settings',
+
     },
     // Spanish lang...
     en:{
@@ -31,6 +35,10 @@ let strings = new LocalizedStrings({
         home: 'Casa',
         store: 'Almacenar',
         site:'Todos los sitios',
+        loading: 'Cargando tiendas...',
+        Footsteps: 'Pasos',
+        Settings : 'Ajustes',
+
     },
     // French lang....
     it: {
@@ -45,7 +53,11 @@ let strings = new LocalizedStrings({
         couponcode: 'Code de coupon',
         home: 'Accueil',
         store:'le magasin',
-        site: 'Tous les sites'
+        site: 'Tous les sites',
+        loading: 'Chargement des magasins...',
+        Footsteps: 'trace de pas',
+        Settings: 'Paramètres',
+
     }
 });
 

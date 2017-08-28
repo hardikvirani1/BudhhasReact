@@ -6,6 +6,7 @@ import Constant from '../helper/constants';
 import font from '../helper/fontsize';
 import * as actions from '../actions'
 import strings from '../helper/language';
+import { Icon, } from "react-native-elements";
 
 const {height, width} = Dimensions.get('window');
 
@@ -32,10 +33,11 @@ class Register extends Component {
 
         return (
             <View style={styles.mainView}>
-                <NavigationBar
-                    leftButtonPressed = { this.backPressed }
-                    leftButtonType = {Constant.navButtonType.back}
-                />
+
+                <View style={{flexDirection:'row', marginTop:15}}>
+                    <Icon name="navigate-before" color="black" size={35} onPress={this.backPressed} />
+                </View>
+
                 <ScrollView scrollEnabled={false}>
                     <View style={[styles.titleView,]}>
                         <Text style={[font.TITLE_FONT,styles.titleText]}>{strings.in}</Text>
