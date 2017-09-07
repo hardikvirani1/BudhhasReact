@@ -100,6 +100,10 @@ class Signin extends Component {
                                    onChangeText={(text) => {this.props.userLoginUpdate({ prop: 'password', value: text});}}
                         />
 
+                        <TouchableHighlight onPress={() => alert('h')} underlayColor='transparent'>
+                            <Text style = {[font.TEXTBOX_FONT,styles.input]}>Forgot Password?</Text>
+                        </TouchableHighlight>
+
                     </View>
                 </ScrollView>
                 <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
@@ -143,21 +147,21 @@ const styles = StyleSheet.create({
     input: {
         width:width-100,
         height: (Platform.OS === 'android') ? 40 : 30,
-        borderBottomColor: '#007AFF',
+        borderBottomColor: 'rgba(116,196,248,1)',
         borderBottomWidth: 1,
         margin: (Platform.OS === 'android') ? 5 : 10,
     },
     submitButton: {
         height: 30,
         marginBottom:20,
-        borderColor:'#007AFF',
+        borderColor:'rgba(116,196,248,1)',
         borderWidth:1,
         justifyContent:'center',
         width:width-100,
         alignItems:'center'
     },
     submitButtonText:{
-        color: '#007AFF',
+
     }
 });
 

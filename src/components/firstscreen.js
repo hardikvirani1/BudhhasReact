@@ -45,20 +45,20 @@ class FirstScreen extends Component {
 
                     <TouchableHighlight onPress={() => this.onSelectLang('en') }
                                         underlayColor='transparent' style={styles.btnStyle}>
-                        <Text style={styles.titleText}>Español</Text>
+                        <Text style={[font.MEDIUM_FONT,styles.titleText]}>Español</Text>
                     </TouchableHighlight>
 
                     <TouchableHighlight onPress={() => this.onSelectLang('it') }
                                         underlayColor='transparent' style={styles.btnStyle}>
-                        <Text style={styles.titleText}>français</Text>
+                        <Text style={[font.MEDIUM_FONT,styles.titleText]}>français</Text>
                     </TouchableHighlight>
 
                     <TouchableHighlight onPress={() =>{} } underlayColor='transparent' style={styles.btnStyle}>
-                        <Text style={styles.titleText}>Pyccknn</Text>
+                        <Text style={[font.MEDIUM_FONT,styles.titleText]}>Pyccknn</Text>
                     </TouchableHighlight>
 
                     <TouchableHighlight onPress={() =>{} } underlayColor='transparent'  style={styles.btnStyle}>
-                        <Text style={styles.titleText}>English</Text>
+                        <Text style={[font.MEDIUM_FONT,styles.titleText]}>English</Text>
                     </TouchableHighlight>
                 </View>
             </View>
@@ -86,8 +86,8 @@ const styles = StyleSheet.create({
         margin:2,
     },
     btnStyle: {
-        borderBottomWidth:0.5,
-        borderBottomColor:'#007AFF',
+        borderBottomWidth:1,
+        borderBottomColor: 'rgba(116,196,248,1)',
         padding:7,
         width: width/2,
     }

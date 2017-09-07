@@ -85,16 +85,6 @@ class Register extends Component {
                                    onChangeText={(text) => {this.props.userRegisterUpdate({ prop: 'repassword', value: text});}}
                         />
 
-                        <TextInput style = {[font.TEXTBOX_FONT,styles.input]}
-                                   ref="coupon"
-                                   returnKeyType={"done"}
-                                   underlineColorAndroid = "transparent"
-                                   placeholder = {strings.couponcode}
-                                   autoCorrect={false}
-                                   autoCapitalize = "none"
-                                   value={this.props.coupon}
-                                   onChangeText={(text) => {this.props.userRegisterUpdate({ prop: 'coupon', value: text});}}
-                        />
 
                     </View>
 
@@ -140,14 +130,14 @@ const styles = StyleSheet.create({
     input: {
         width:width-100,
         height: (Platform.OS === 'android') ? 40 : 30,
-        borderBottomColor: '#007AFF',
+        borderBottomColor: 'rgba(116,196,248,1)',
         borderBottomWidth: 1,
         margin: (Platform.OS === 'android') ? 5 : 10,
     },
     submitButton: {
         marginBottom:20,
         height: 30,
-        borderColor:'#007AFF',
+        borderColor:'rgba(116,196,248,1)',
         borderWidth:1,
         justifyContent:'center',
         width:width-100,
