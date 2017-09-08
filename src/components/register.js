@@ -74,9 +74,8 @@ class Register extends Component {
 
                         <TextInput style = {[font.TEXTBOX_FONT,styles.input]}
                                    ref="confirm"
-                                   returnKeyType={"next"}
+                                   returnKeyType={"done"}
                                    underlineColorAndroid = "transparent"
-                                   onSubmitEditing={() => this.focusNextField('coupon')}
                                    placeholder = {strings.confirmpassword}
                                    secureTextEntry
                                    autoCorrect={false}

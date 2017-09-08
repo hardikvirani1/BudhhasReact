@@ -100,7 +100,7 @@ export default class DrawerNavigationLayout extends React.Component {
                 >
                     <StackNavigation
                         id='footsteps'
-                        initialRoute={Router.getRoute('homescreen')}
+                        initialRoute={Router.getRoute('footsteps')}
                         defaultRouteConfig={{
                             navigationBar: {
                                 visible: false,
@@ -132,11 +132,11 @@ export default class DrawerNavigationLayout extends React.Component {
                 <DrawerNavigationItem
                     id='settings'
                     selectedStyle={styles.selectedItemStyle}
-                    renderTitle={isSelected => this._renderTitle(strings.Settings, isSelected)}
+                    renderTitle={isSelected => this._renderTitle(strings.settings, isSelected)}
                 >
                     <StackNavigation
                         id='settings'
-                        initialRoute={Router.getRoute('homescreen')}
+                        initialRoute={Router.getRoute('settings')}
                         defaultRouteConfig={{
                             navigationBar: {
                                 visible: false,
@@ -166,6 +166,7 @@ export default class DrawerNavigationLayout extends React.Component {
 
 
     getIcon = (title) =>{
+        debugger
         if (title === strings.home){
             return <FontAwesome name='home' size={iconSize} style={[cs.transparentBackground, cs.colorA8]} />
         }
@@ -178,7 +179,7 @@ export default class DrawerNavigationLayout extends React.Component {
         if (title === strings.store){
             return <FontAwesome name='shopping-cart' size={iconSize} style={[cs.transparentBackground, cs.colorA8]} />
         }
-        if (title === strings.Settings){
+        if (title === strings.settings){
             return <FontAwesome name='cog' size={iconSize} style={[cs.transparentBackground, cs.colorA8]} />
         }
     };

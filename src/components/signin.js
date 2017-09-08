@@ -101,7 +101,7 @@ class Signin extends Component {
                         />
 
                         <TouchableHighlight onPress={() => alert('h')} underlayColor='transparent'>
-                            <Text style = {[font.TEXTBOX_FONT,styles.input]}>Forgot Password?</Text>
+                            <Text style = {[font.TEXTBOX_FONT,styles.input]}>{strings.forgot}</Text>
                         </TouchableHighlight>
 
                     </View>

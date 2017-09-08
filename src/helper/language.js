@@ -6,7 +6,7 @@ let strings = new LocalizedStrings({
     "en-US":{
         in:"in the",
         buddha:"Buddha's",
-        footsteps:"footsteps",
+        footsteps:"Footsteps",
         register: 'Register',
         signin: 'Sign In',
         email: 'Email',
@@ -18,8 +18,14 @@ let strings = new LocalizedStrings({
         site:'All Sites',
         loading: 'Loading stores...',
         Footsteps: 'Footsteps',
-        Settings: 'Settings',
-
+        settings: 'Settings',
+        forgot: 'Forgot Password?',
+        cleardata: 'Clear Data',
+        changelang: 'Change Language',
+        changepass: 'Change Password',
+        terms: 'Terms and Privacy Policy',
+        signout: 'Sign Out',
+        about: 'About',
     },
     // Spanish lang...
     en:{
@@ -37,8 +43,14 @@ let strings = new LocalizedStrings({
         site:'Todos los sitios',
         loading: 'Cargando tiendas...',
         Footsteps: 'Pasos',
-        Settings : 'Ajustes',
-
+        settings : 'Ajustes',
+        forgot: '¿Se te olvidó tu contraseña?',
+        cleardata: 'Borrar datos',
+        changelang: 'Cambiar idioma',
+        changepass: 'Cambia la contraseña',
+        terms: 'Términos y Política de Privacidad',
+        signout: 'Desconectar',
+        about: 'Acerca de',
     },
     // French lang....
     it: {
@@ -56,8 +68,14 @@ let strings = new LocalizedStrings({
         site: 'Tous les sites',
         loading: 'Chargement des magasins...',
         Footsteps: 'trace de pas',
-        Settings: 'Paramètres',
-
+        settings: 'Paramètres',
+        forgot: 'Mot de passe oublié?',
+        cleardata: 'Effacer les données',
+        changelang: 'Changer de langue',
+        changepass: 'Changer le mot de passe',
+        terms: 'Termes et politique de confidentialité',
+        signout: 'Déconnexion',
+        about: 'Sur',
     }
 });
 

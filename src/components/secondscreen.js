@@ -21,7 +21,7 @@ class SecondScreen extends Component {
 
                 <View style={styles.contentView}>
                     <View>
-                        <Image source={require('../../images/buddha.jpeg')}
+                        <Image source={require('../../images/buddhas.png')} resizeMode="contain"
                                style={{height: height/2.5, width:width-40}} />
                     </View>
 

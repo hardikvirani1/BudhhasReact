@@ -18,8 +18,8 @@ export default class NavigationBar extends React.Component {
     }
     render() {
         return (
-            <View style={[cs.jcBetween,cs.navHeight,cs.bg000,cs.itemsCenter,{shadowColor: '#000000', shadowOffset: { width: 0, height: 3 },
-                         zIndex: 100, height: 54}]}
+            <View style={[cs.jcBetween,cs.navHeight,cs.bg000,cs.itemsCenter,{shadowColor: '#000000',
+                shadowOffset: { width: 0, height: 3 }, shadowOpacity: 0.2, zIndex: 100, height: 54}]}
                   elevation={15}>
                 <Grid>
                     <Col size={1.5} style={[cs.selfCenter]}>
@@ -37,7 +37,7 @@ export default class NavigationBar extends React.Component {
                         <Text numberOfLines={1} style={[cs.bg000,cs.tc,cs.fontKorolevBold,csFont.TITLE_FONT,{fontWeight:'bold'}]}>{ this.props.navTitle }</Text>
                     </Col>
                     <Col size={1.5}>
-                        <Text/>
+                        <Text></Text>
                     </Col>
                 </Grid>
             </View>

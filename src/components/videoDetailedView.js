@@ -21,7 +21,7 @@ type Props = {
 @createFocusAwareComponent
 @withNavigation
 
-class HomeScreen extends React.Component {
+class VideoDetailed extends React.Component {
 
     constructor(props) {
         super(props);
@@ -33,7 +33,7 @@ class HomeScreen extends React.Component {
             <View style={styles.container}>
                 <VideoPlayer
                     endWithThumbnail
-                    thumbnail={require('../../images/buddha.jpeg')}
+                    thumbnail={require('../../images/lumbini.png')}
                     video={require('../../images/baadshah.mp4')}
                     videoWidth={Constant.screenWidth}
                     resizeMode="contain"
@@ -59,14 +59,14 @@ class HomeScreen extends React.Component {
         return(
             <View>
                 <View>
-                    <Text style={{marginLeft:8, margin:10}}>Lorem Ipsum Dolor Sit Amet.!</Text>
+                    <Text style={[ font.MEDIUM_FONT, {marginLeft:8, margin:10}]}>Lorem Ipsum Dolor Sit Amet.!</Text>
                 </View>
 
                 <View style={styles.viewImages}>
                     <Text style={[font.MEDIUM_FONT, cs.b, cs.centered]}>Next Site</Text>
 
                     <TouchableHighlight style={styles.btnimages} onPress={() => {}}>
-                        <Image source={require('../../images/buddha.jpeg')}
+                        <Image source={require('../../images/bodhgayas.png')}
                                style={{ width: Constant.screenWidth-30, height: Constant.screenWidth/1.75}}/>
                     </TouchableHighlight>
                 </View>
@@ -140,4 +140,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default HomeScreen;
+export default VideoDetailed;
