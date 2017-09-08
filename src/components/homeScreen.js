@@ -33,7 +33,7 @@ class HomeScreen extends React.Component {
             <View style={styles.container}>
                 <VideoPlayer
                     endWithThumbnail
-                    thumbnail={require('../../images/buddha.jpeg')}
+                    thumbnail={require('../../images/videoImage.png')}
                     video={require('../../images/baadshah.mp4')}
                     videoWidth={Constant.screenWidth}
                     resizeMode="contain"
@@ -42,7 +42,7 @@ class HomeScreen extends React.Component {
                     <View style={{flexDirection:'row', backgroundColor:'rgba(232,232,232,1)'}}>
                         <View style={{margin:8, justifyContent:'center',}}>
                             <Text style={[font.MEDIUM_FONT, cs.b]}>
-                                Title of Video
+                                Introduction
                             </Text>
                         </View>
                     </View>
@@ -56,7 +56,7 @@ class HomeScreen extends React.Component {
                 <TouchableHighlight style={styles.btnimages} onPress={() => {
                     this.props.navigator.push('sites',{isFromHomeScreen: true});
                 }}>
-                    <Image source={require('../../images/buddha.jpeg')}
+                    <Image source={require('../../images/allSites.png')}
                            style={{ width: Constant.screenWidth-30, height: Constant.screenWidth/1.75}}/>
                 </TouchableHighlight>
             </View>

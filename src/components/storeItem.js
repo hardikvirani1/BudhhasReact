@@ -11,7 +11,7 @@ const StoreItem = (props) =>{
         return (
 
             <CardSection style={{flex:1}}>
-                <View style={{flexDirection:'column'}}>
+                <View style={{flexDirection:'column', }}>
                       <Image source={{uri:props.user.image}} style = {{ width: Constant.storeScreen,
                           height: Constant.storeScreen }} />
                 </View>
@@ -27,7 +27,7 @@ const StoreItem = (props) =>{
                  </View>
                 <View style={{flex:1,flexDirection:'row',justifyContent:'flex-end',marginRight:5}}>
                     <View style={{alignSelf:'flex-end'}}>
-                          <Text style={[cs.b,font.TITLE_FONT]} >
+                          <Text style={[cs.b,font.TITLE_FONT, {color:'rgba(15,102,177,1)'}]} >
                                 {props.user.title}
                           </Text>
                     </View>

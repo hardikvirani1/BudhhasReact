@@ -5,7 +5,7 @@ import Router from '../NavigationHelper/Router'
 import { NavigationActions } from '@expo/ex-navigation';
 import Store from '../reducers';
 
-export const userSelectLang = (selected_lang) => {
+export const userSelectLang = (selected_lang, props) => {
     console.log('selected-lang:',selected_lang);
     return (dispatch) => {
         dispatch({
@@ -15,7 +15,15 @@ export const userSelectLang = (selected_lang) => {
         AsyncStorage.setItem('selected_lang', selected_lang);
         strings.setLanguage(selected_lang);
 
-        let navigatorUID = Store.getState().navigation.currentNavigatorUID;
-        Store.dispatch(NavigationActions.push(navigatorUID, Router.getRoute('secondscreen')));
+
+        if(props.route.params.isFromSettingScreen === true) {
+            let navigatorUID = Store.getState().navigation.currentNavigatorUID;
+            Store.dispatch(NavigationActions.pop(navigatorUID));
+        }
+
+        else{
+            let navigatorUID = Store.getState().navigation.currentNavigatorUID;
+            Store.dispatch(NavigationActions.push(navigatorUID, Router.getRoute('secondscreen')));
+        }
     };
 };

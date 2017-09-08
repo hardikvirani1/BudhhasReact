@@ -3,6 +3,7 @@ import {StyleSheet, View, Text, TextInput, TouchableHighlight, Image, Dimensions
 import {connect, } from 'react-redux';
 import font  from '../helper/fontsize';
 import strings from '../helper/language';
+import NavigationBar from './NavigationBar';
 const {height, width} = Dimensions.get('window');
 import * as actions from '../actions'
 import Constant from '../helper/constants';
@@ -24,15 +25,34 @@ class FirstScreen extends Component {
 
     }
 
+    backPressed = () => {
+        this.props.navigator.pop()
+    };
+
+    menuPressed = () => {
+        const { navigation } = this.props;
+        const navigator = navigation.getNavigatorByUID('drawerNav');
+        navigator.toggleDrawer()
+    };
+
+
     onSelectLang = (lang) => {
-        this.props.userSelectLang(lang);
+        this.props.userSelectLang(lang, this.props);
     };
 
     render() {
         return (
             <View style={styles.mainView}>
+                {
+                    (this.props.route.params.isFromSettingScreen === true)&&
+                    <NavigationBar
+                        navTitle="Select Language"
+                        leftButtonPressed = { this.backPressed }
+                        leftButtonType = {Constant.navButtonType.back}
+                    />
+                }
                 <View style={styles.titleView}>
-                    <Text style={[font.TITLE_FONT,styles.titleText]}>{strings.in}</Text>
+                    <Text style={[font.TITLE_FONT,styles.titleText, {fontFamily:'arial'}]}>{strings.in}</Text>
                     <Text style={[font.XLARGE_FONT,styles.titleText]}>{strings.buddha}</Text>
                     <Text style={[font.MEDIUM_FONT,styles.titleText]}>{strings.footsteps}</Text>
                 </View>
