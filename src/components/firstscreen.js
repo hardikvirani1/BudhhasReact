@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text, TextInput, TouchableHighlight, Image, Dimensions, AsyncStorage} from 'react-native';
+import {StyleSheet, View, Text, TextInput, TouchableHighlight, Image, Dimensions, AsyncStorage, StatusBar} from 'react-native';
 import {connect, } from 'react-redux';
 import font  from '../helper/fontsize';
 import strings from '../helper/language';
 import NavigationBar from './NavigationBar';
-const {height, width} = Dimensions.get('window');
 import * as actions from '../actions'
 import Constant from '../helper/constants';
+const {height, width} = Dimensions.get('window');
 
 class FirstScreen extends Component {
     static navigationOptions = {
@@ -35,7 +35,6 @@ class FirstScreen extends Component {
         navigator.toggleDrawer()
     };
 
-
     onSelectLang = (lang) => {
         this.props.userSelectLang(lang, this.props);
     };
@@ -43,6 +42,7 @@ class FirstScreen extends Component {
     render() {
         return (
             <View style={styles.mainView}>
+                {/*<StatusBar barStyle = "dark-content" hidden = {false}/>*/}
                 {
                     (this.props.route.params.isFromSettingScreen === true)&&
                     <NavigationBar
@@ -59,6 +59,7 @@ class FirstScreen extends Component {
                         <Text style={[font.MEDIUM_FONT,styles.titleText, {fontFamily:'Futura'}]}>{strings.footsteps}</Text>
                     </View>
                 }
+
 
 
                 <View style={styles.languageView}>
@@ -116,7 +117,7 @@ const styles = StyleSheet.create({
         borderBottomColor: 'rgba(116,196,248,1)',
         padding:7,
         width: width/2,
-    }
+    },
 });
 
 mapStateToProps = state => {
