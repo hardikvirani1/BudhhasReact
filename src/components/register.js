@@ -33,12 +33,11 @@ class Register extends Component {
 
         return (
             <View style={styles.mainView}>
+                <ScrollView scrollEnabled={false} contentContainerStyle={{height:Platform.OS === 'android' ? height-40 : height-20}}>
+                    <View style={{flexDirection:'row', marginTop:Platform.OS === 'android' ? 0 :15}}>
+                        <Icon name="navigate-before" color="black" size={35} onPress={this.backPressed} />
+                    </View>
 
-                <View style={{flexDirection:'row', marginTop:15}}>
-                    <Icon name="navigate-before" color="black" size={35} onPress={this.backPressed} />
-                </View>
-
-                <ScrollView scrollEnabled={false}>
                     <View style={[styles.titleView,]}>
                         <Text style={[font.TITLE_FONT,styles.titleText]}>{strings.in}</Text>
                         <Text style={[font.XLARGE_FONT,styles.titleText]}>{strings.buddha}</Text>
@@ -86,15 +85,14 @@ class Register extends Component {
 
 
                     </View>
-
+                    <View style={{ alignItems:'center' }}>
+                        <TouchableHighlight style = {styles.submitButton}
+                                            underlayColor='transparent' onPress={this.onCreateSet}>
+                            <Text ref="register" style = {[styles.submitButtonText, font.TEXTBOX_FONT]}>{strings.register}</Text>
+                        </TouchableHighlight>
+                    </View>
                 </ScrollView>
-                <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
 
-                    <TouchableHighlight style = {styles.submitButton}
-                                        underlayColor='transparent' onPress={this.onCreateSet}>
-                        <Text ref="register" style = {[styles.submitButtonText, font.TEXTBOX_FONT]}>{strings.register}</Text>
-                    </TouchableHighlight>
-                </View>
             </View>
         );
     }
@@ -102,14 +100,16 @@ class Register extends Component {
 
 const styles = StyleSheet.create({
     mainView: {
+        bottom:0,
         flexDirection:'column',
-        flex:1,
+        flex:1,left:0,right:0,top:0,
+
     },
     titleView:{
-        marginTop:-50,
+        marginTop:0,
         justifyContent:'center',
         width,
-        height: height/2.5,
+        height: height/3.5,
     },
     contentView: {
         flex:1,
@@ -120,6 +120,7 @@ const styles = StyleSheet.create({
     titleText: {
         alignSelf:'center',
         margin:2,
+
     },
     btnStyle: {
         width: width/2,
@@ -134,13 +135,12 @@ const styles = StyleSheet.create({
         margin: (Platform.OS === 'android') ? 5 : 10,
     },
     submitButton: {
-        marginBottom:20,
         height: 30,
         borderColor:'rgba(116,196,248,1)',
         borderWidth:1,
-        justifyContent:'center',
         width:width-100,
-        alignItems:'center'
+        alignItems:'center',
+        justifyContent:'center',
     },
 
     submitButtonText:{
