@@ -61,12 +61,13 @@ class Signin extends Component {
     render() {
         return (
             <View style={styles.mainView}>
+                <ScrollView scrollEnabled={false} contentContainerStyle={{height:Platform.OS === 'android' ? height-40 : height-20}}>
+                    <View style={{flexDirection:'row', marginTop:Platform.OS === 'android' ? 0 :15}}>
+                        <Icon name="navigate-before" color="black" size={35} onPress={this.backPressed} />
+                    </View>
 
-                <View style={{flexDirection:'row', marginTop:15}}>
-                    <Icon name="navigate-before" color="black" size={35} onPress={this.backPressed} />
-                </View>
 
-                <ScrollView scrollEnabled={false}>
+
 
                     <View style={[styles.titleView,]}>
                         <Text style={[font.TITLE_FONT,styles.titleText]}>{strings.in}</Text>
@@ -101,17 +102,20 @@ class Signin extends Component {
                         />
 
                         <TouchableHighlight onPress={() => alert('h')} underlayColor='transparent'>
-                            <Text style = {[font.TEXTBOX_FONT,styles.input]}>{strings.forgot}</Text>
+                            <Text style = {[font.TEXTBOX_FONT,styles.forgotPass]}>{strings.forgot}</Text>
+                        </TouchableHighlight>
+
+                    </View>
+
+                    <View style={{justifyContent:'center', alignItems:'center'}}>
+                        <TouchableHighlight style = {styles.submitButton}
+                                            underlayColor='transparent' onPress={this.onLoginSet}>
+                            <Text style = {[styles.submitButtonText, font.TEXTBOX_FONT]}>{strings.signin}</Text>
                         </TouchableHighlight>
 
                     </View>
                 </ScrollView>
-                <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
-                    <TouchableHighlight style = {styles.submitButton}
-                                        underlayColor='transparent' onPress={this.onLoginSet}>
-                        <Text style = {[styles.submitButtonText, font.TEXTBOX_FONT]}>{strings.signin}</Text>
-                    </TouchableHighlight>
-                </View>
+
             </View>
         );
     }
@@ -119,14 +123,15 @@ class Signin extends Component {
 
 const styles = StyleSheet.create({
     mainView: {
-        flexDirection:'column',
-        flex:1,
+        bottom:0,flexDirection:'column',
+        flex:1,left:0,right:0,top:0,
+
     },
     titleView:{
         justifyContent:'center',
-        marginTop:-50,
+        marginTop:0,
         width,
-        height: height/2.5,
+        height: height/3.5,
         flexDirection:'column'
     },
     contentView: {
@@ -151,9 +156,15 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         margin: (Platform.OS === 'android') ? 5 : 10,
     },
+    forgotPass:{
+        width:width-100,
+        height: (Platform.OS === 'android') ? 40 : 30,
+        margin: (Platform.OS === 'android') ? 5 : 10,
+        alignItems:'center',
+        justifyContent:'center'
+    },
     submitButton: {
         height: 30,
-        marginBottom:20,
         borderColor:'rgba(116,196,248,1)',
         borderWidth:1,
         justifyContent:'center',
@@ -161,7 +172,7 @@ const styles = StyleSheet.create({
         alignItems:'center'
     },
     submitButtonText:{
-
+        color: 'black',
     }
 });
 
