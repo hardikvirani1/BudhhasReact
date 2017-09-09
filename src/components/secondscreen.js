@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {StackNavigator} from 'react-navigation';
 import {StyleSheet, View, Text, TextInput, TouchableHighlight, Image, Dimensions} from 'react-native';
-const {height, width} = Dimensions.get('window');
 import font  from '../helper/fontsize';
 import strings from '../helper/language';
 import Router from '../NavigationHelper/Router'
 import { NavigationActions } from '@expo/ex-navigation';
+const {height, width} = Dimensions.get('window');
 
 
 class SecondScreen extends Component {
