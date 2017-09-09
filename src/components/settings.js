@@ -60,8 +60,7 @@ class Settings extends React.Component {
                         <Text style={[font.MEDIUM_FONT,styles.titleText]}>{strings.changelang}</Text>
                     </TouchableHighlight>
 
-                    <TouchableHighlight onPress={() => this.onSelectLang('it') }
-                                        underlayColor='transparent' style={styles.btnStyle}>
+                    <TouchableHighlight onPress={() => {}} underlayColor='transparent' style={styles.btnStyle}>
                         <Text style={[font.MEDIUM_FONT,styles.titleText]}>{strings.changepass}</Text>
                     </TouchableHighlight>
 

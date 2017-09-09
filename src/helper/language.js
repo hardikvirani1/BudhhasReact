@@ -6,7 +6,7 @@ let strings = new LocalizedStrings({
     "en-US":{
         in:"in the",
         buddha:"Buddha's",
-        footsteps:"Footsteps",
+        footsteps:"footsteps",
         register: 'Register',
         signin: 'Sign In',
         email: 'Email',
@@ -31,7 +31,7 @@ let strings = new LocalizedStrings({
     en:{
         in:"en el",
         buddha:"Buda",
-        footsteps:"Pasos",
+        footsteps:"pasos",
         register: 'Registro',
         signin: 'Registrarse',
         email: 'Email',

@@ -51,11 +51,15 @@ class FirstScreen extends Component {
                         leftButtonType = {Constant.navButtonType.back}
                     />
                 }
-                <View style={styles.titleView}>
-                    <Text style={[font.TITLE_FONT,styles.titleText, {fontFamily:'arial'}]}>{strings.in}</Text>
-                    <Text style={[font.XLARGE_FONT,styles.titleText]}>{strings.buddha}</Text>
-                    <Text style={[font.MEDIUM_FONT,styles.titleText]}>{strings.footsteps}</Text>
-                </View>
+                {
+                    (this.props.route.params.isFromSettingScreen != true)&&
+                    <View style={styles.titleView}>
+                        <Text style={[font.TITLE_FONT,styles.titleText, {fontFamily:'Futura'}]}>{strings.in}</Text>
+                        <Text style={[font.XLARGE_FONT,styles.titleText, {fontFamily:'Futura'}]}>{strings.buddha}</Text>
+                        <Text style={[font.MEDIUM_FONT,styles.titleText, {fontFamily:'Futura'}]}>{strings.footsteps}</Text>
+                    </View>
+                }
+
 
                 <View style={styles.languageView}>
                     <TouchableHighlight onPress={() => this.onSelectLang('en-US') }
