@@ -77,12 +77,14 @@ class FirstScreen extends Component {
                         <Text style={[font.MEDIUM_FONT,styles.titleText]}>français</Text>
                     </TouchableHighlight>
 
-                    <TouchableHighlight onPress={() =>{} } underlayColor='transparent' style={styles.btnStyle}>
-                        <Text style={[font.MEDIUM_FONT,styles.titleText]}>Pyccknn</Text>
+                    <TouchableHighlight onPress={() => this.onSelectLang('rs') }
+                                        underlayColor='transparent' style={styles.btnStyle}>
+                        <Text style={[font.MEDIUM_FONT,styles.titleText]}>русский</Text>
                     </TouchableHighlight>
 
-                    <TouchableHighlight onPress={() =>{} } underlayColor='transparent'  style={styles.btnStyle}>
-                        <Text style={[font.MEDIUM_FONT,styles.titleText]}>English</Text>
+                    <TouchableHighlight onPress={() => this.onSelectLang('ch') }
+                                        underlayColor='transparent'  style={styles.btnStyle}>
+                        <Text style={[font.MEDIUM_FONT,styles.titleText]}>中文</Text>
                     </TouchableHighlight>
                 </View>
             </View>
