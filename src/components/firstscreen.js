@@ -14,15 +14,20 @@ class FirstScreen extends Component {
     };
 
     componentWillMount(){
-        let lang = AsyncStorage.getItem('selected_lang');
-
-        if(!lang){
-            strings.setLanguage('en-US');
-        } else {
-            strings.setLanguage('en-US');
+        try {
+            AsyncStorage.getItem("selected_lang").then((value) => {
+                debugger
+                if(value){
+                    strings.setLanguage(value);
+                    //this.props.navigator.push('secondscreen');
+                }
+                else {
+                    strings.setLanguage('en-US');
+                }
+            })
+        } catch (error) {
+            // Error retrieving data
         }
-
-
     }
 
     backPressed = () => {
@@ -54,7 +59,7 @@ class FirstScreen extends Component {
                 {
                     (this.props.route.params.isFromSettingScreen != true)&&
                     <View style={styles.titleView}>
-                        <Text style={[font.TITLE_FONT,styles.titleText, {fontFamily:'Futura'}]}>{strings.in}</Text>
+                        <Text style={[font.TITLE_FONT,styles.titleText, {fontFamily:'NotoSans-Italic'}]}>{strings.in}</Text>
                         <Text style={[font.XLARGE_FONT,styles.titleText, {fontFamily:'Futura'}]}>{strings.buddha}</Text>
                         <Text style={[font.MEDIUM_FONT,styles.titleText, {fontFamily:'Futura'}]}>{strings.footsteps}</Text>
                     </View>

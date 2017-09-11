@@ -12,6 +12,7 @@ export const userSelectLang = (selected_lang, props) => {
             type: SELECT_LANGUAGE,
             payload: selected_lang
         });
+
         AsyncStorage.setItem('selected_lang', selected_lang);
         strings.setLanguage(selected_lang);
 
